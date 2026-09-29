@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ton espace — le secteur culturel autour de Saumur</title>
+<style>
+  :root{
+    --ardoise:#2f333b; --ardoise-2:#454b57; --bordeaux:#6e2433; --bordeaux-2:#8a3145;
+    --tuffeau:#a9854b; --tuffeau-soft:#e7dcc4; --bg:#faf8f3; --card:#ffffff;
+    --ink:#23252b; --ink-soft:#565b63; --line:#e4ddcf; --line-2:#cfc7b4;
+    --ok-bg:#e7f0e7; --ok-ink:#2f6a35; --warn-bg:#fbf0d9; --warn-ink:#8a6212;
+    --violet:#5b4a6e; --vert:#3d6a4f; --bleu:#33566e;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.6; -webkit-font-smoothing:antialiased;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:0 22px 90px}
+  h1,h2,h3,h4{font-family:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif; line-height:1.22; color:var(--ardoise)}
+  a{color:var(--bordeaux); text-decoration:none; border-bottom:1px solid rgba(110,36,51,.25)}
+  a:hover{border-bottom-color:var(--bordeaux)}
+  p{margin:.55em 0}
+  small{color:var(--ink-soft)}
+
+  .cover{background:linear-gradient(150deg,var(--ardoise) 0%,#23262d 55%,var(--bordeaux) 150%); color:#fff; padding:58px 46px 50px}
+  .cover .kicker{font-size:.8rem; letter-spacing:.2em; text-transform:uppercase; color:var(--tuffeau-soft); margin:0 0 16px}
+  .cover h1{color:#fff; font-size:2.3rem; margin:0 0 10px}
+  .cover .sub{font-size:1.12rem; color:#e9e4da; font-family:Georgia,serif; font-style:italic; margin:0 0 24px}
+  .cover .meta{display:flex; flex-wrap:wrap; gap:8px 24px; border-top:1px solid rgba(255,255,255,.2); padding-top:18px; font-size:.9rem; color:#d9d4c8}
+  .cover .meta b{color:#fff; font-weight:600}
+
+  .howto{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px 24px; margin:26px 0}
+  .howto h2{margin:0 0 8px; font-size:1.25rem}
+  .howto ol{margin:8px 0 0; padding-left:22px}
+  .howto li{margin:.35em 0}
+  .howto .rassure{margin-top:14px; font-size:.95rem; color:var(--ink-soft); border-top:1px dashed var(--line); padding-top:12px}
+
+  section.sec{margin:44px 0 0}
+  section.sec>h2{font-size:1.6rem; margin:0 0 6px; padding-bottom:10px}
+  .sec>h2 .num{color:var(--tuffeau); font-size:1rem; display:block; letter-spacing:.16em; margin-bottom:2px; font-family:Georgia,serif}
+  .sec>h2::after{content:""; display:block; height:3px; width:58px; background:var(--bordeaux); margin-top:10px; border-radius:2px}
+  .sec h3{font-size:1.18rem; margin:28px 0 8px}
+  .intro-sec{color:var(--ink-soft)}
+
+  .grid{display:grid; gap:16px; margin:18px 0}
+  .grid.c2{grid-template-columns:1fr 1fr}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px}
+
+  .tablewrap{overflow-x:auto; margin:14px 0}
+  table{border-collapse:collapse; width:100%; font-size:.9rem; background:var(--card); border:1px solid var(--line-2)}
+  th,td{padding:9px 11px; border:1px solid var(--line); vertical-align:top; text-align:left; overflow-wrap:anywhere}
+  thead th{background:var(--ardoise); color:#fff; font-family:Georgia,serif; font-weight:600; font-size:.85rem; border-color:var(--ardoise-2)}
+  tbody tr:nth-child(even){background:#f6f2ea}
+  td.tick{text-align:center; width:88px}
+  td.tick input{width:20px; height:20px; accent-color:var(--bordeaux); cursor:pointer}
+  thead th:first-child{overflow-wrap:normal; word-break:normal; hyphens:none; font-size:.8rem}
+  .act{color:var(--ardoise)}
+  .act b{color:var(--bordeaux-2)}
+
+  .b{display:inline-block; font-size:.72rem; font-weight:600; padding:2px 8px; border-radius:5px; white-space:nowrap}
+  .b-warn{background:var(--warn-bg); color:var(--warn-ink)}
+
+  .callout{background:#f4f6f3; border:1px solid #dfe6dc; border-left:4px solid var(--ok-ink); border-radius:8px; padding:13px 17px; margin:16px 0}
+  .callout.tip{background:#f7f3ec; border-left-color:var(--tuffeau); border-color:var(--line)}
+  .callout .lbl{font-weight:700; color:var(--ardoise); font-size:.8rem; letter-spacing:.05em; text-transform:uppercase; display:block; margin-bottom:4px}
+  .callout.tip .lbl{color:var(--tuffeau)}
+
+  .figrow{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:16px 0}
+  .fig{background:var(--ardoise); color:#fff; border-radius:10px; padding:16px; text-align:center}
+  .fig.alt{background:var(--bordeaux)}
+  .fig.alt2{background:var(--tuffeau); color:#2c2410}
+  .fig .n{font-family:Georgia,serif; font-size:1.55rem; display:block; line-height:1.05}
+  .fig .l{font-size:.8rem; color:#d9d4c8; margin-top:6px; display:block}
+  .fig.alt2 .l{color:#4a3d1c}
+
+  .famgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:18px 0}
+  .fam{border:1px solid var(--line); border-radius:12px; background:var(--card); padding:14px; border-top:5px solid var(--tuffeau)}
+  .fam.c1{border-top-color:var(--bordeaux)} .fam.c2{border-top-color:var(--violet)}
+  .fam.c3{border-top-color:var(--ardoise)} .fam.c4{border-top-color:var(--vert)}
+  .fam.c5{border-top-color:var(--bleu)} .fam.c6{border-top-color:var(--tuffeau)}
+  .fam .ic{font-size:1.4rem} .fam h4{margin:6px 0 2px; font-size:1rem}
+  .fam ul{margin:6px 0 0; padding-left:16px; font-size:.82rem; color:var(--ink-soft)}
+
+  .agenda{margin:16px 0; border-left:2px solid var(--line-2)}
+  .ag{position:relative; padding:9px 0 9px 28px; border-bottom:1px dashed var(--line)}
+  .ag:last-child{border-bottom:none}
+  .ag::before{content:""; position:absolute; left:-7px; top:15px; width:12px; height:12px; border-radius:50%; background:var(--bordeaux); border:2px solid var(--bg)}
+  .ag.soon::before{background:var(--tuffeau)}
+  .ag .date{font-family:Georgia,serif; font-weight:700; color:var(--bordeaux); font-size:.85rem}
+  .ag .ev{font-weight:600; color:var(--ardoise)}
+  .ag .why{font-size:.85rem; color:var(--ink-soft)}
+
+  .phase{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:4px 20px 12px; margin:14px 0; border-top:4px solid var(--bordeaux)}
+  .phase h3{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+  .phase h3 .when{font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; background:var(--tuffeau-soft); color:#6b531f; padding:3px 10px; border-radius:20px}
+  .check{list-style:none; padding-left:0; margin:6px 0}
+  .check li{padding:6px 0 6px 32px; position:relative}
+  .check li label{cursor:pointer; display:block}
+  .check li input[type=checkbox]{position:absolute; left:0; top:7px; width:19px; height:19px; accent-color:var(--bordeaux); cursor:pointer}
+  .check li input[type=checkbox]:checked ~ span{color:var(--ink-soft); text-decoration:line-through; text-decoration-color:var(--line-2)}
+
+  .src{background:var(--card); border:1px solid var(--line); border-radius:9px; padding:13px 17px; margin:11px 0}
+  .src h4{margin:0 0 3px}
+  .src .url{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.8rem; background:#f4f0e7; border:1px solid var(--line); border-radius:5px; padding:2px 7px; word-break:break-all; color:#5a4a2a}
+
+  .mail{border:1px solid var(--line-2); border-radius:10px; margin:16px 0; overflow:hidden; background:var(--card)}
+  .mail .head{background:var(--bordeaux); color:#fff; padding:9px 15px; display:flex; justify-content:space-between; align-items:center; gap:12px}
+  .mail .head .t{font-family:Georgia,serif; font-size:.98rem}
+  .mail .who{font-size:.84rem; color:var(--ink-soft); padding:9px 17px 0}
+  .mail .who b{color:var(--ardoise)}
+  .mail .body{padding:6px 17px 15px; white-space:pre-wrap; font-size:.9rem; line-height:1.5}
+  .mail .obj{font-weight:600; color:var(--ardoise)}
+  .copy-btn{background:rgba(255,255,255,.16); color:#fff; border:1px solid rgba(255,255,255,.5); border-radius:6px; padding:4px 11px; font-size:.78rem; cursor:pointer}
+  .copy-btn:hover{background:rgba(255,255,255,.28)}
+  .var{background:#f0e7d6; border-radius:3px; padding:0 3px; color:#7a5a16}
+
+  /* FORMULAIRE */
+  .quiz .q{margin:20px 0 0; padding-top:16px; border-top:1px solid var(--line)}
+  .quiz .q:first-of-type{border-top:none}
+  .quiz .qn{font-family:Georgia,serif; color:var(--bordeaux); font-weight:700; font-size:.8rem; letter-spacing:.04em}
+  .quiz .ql{font-weight:600; color:var(--ardoise); display:block; margin:2px 0 4px; font-size:1.02rem}
+  .quiz .hint{font-size:.85rem; color:var(--ink-soft); margin:0 0 8px}
+  textarea,input[type=text]{width:100%; border:1px solid var(--line-2); border-radius:8px; padding:10px 12px; font-size:.95rem; font-family:inherit; color:var(--ink); background:#fffdf9; resize:vertical}
+  textarea:focus,input[type=text]:focus{outline:none; border-color:var(--tuffeau); box-shadow:0 0 0 3px rgba(169,133,75,.15)}
+  textarea{min-height:70px}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:6px 0}
+  .chip{display:inline-flex; align-items:center; gap:7px; border:1px solid var(--line-2); border-radius:20px; padding:6px 13px; font-size:.86rem; cursor:pointer; background:#fffdf9; user-select:none}
+  .chip input{accent-color:var(--bordeaux); cursor:pointer}
+  .chip:has(input:checked){background:var(--tuffeau-soft); border-color:var(--tuffeau); color:#5a4413; font-weight:600}
+
+  .myactors{background:#f7f3ec; border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin:18px 0}
+  .myactors h3{margin:0 0 4px}
+
+  .savebar{position:sticky; top:0; z-index:20; background:rgba(250,248,243,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); padding:8px 22px; display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:.85rem}
+  .savebar .st{color:var(--ok-ink); font-weight:600}
+  .btn{background:var(--ardoise); color:#fff; border:none; border-radius:7px; padding:8px 15px; font-size:.85rem; cursor:pointer; font-family:inherit}
+  .btn:hover{background:var(--ardoise-2)}
+  .btn.big{background:var(--bordeaux); font-size:.95rem; padding:11px 20px}
+  .btn.big:hover{background:var(--bordeaux-2)}
+  .btn.ghost{background:transparent; color:var(--ink-soft); border:1px solid var(--line-2)}
+  .btn.ghost:hover{background:#f0ece2; color:var(--ink)}
+  .exportbox{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin:18px 0}
+  .exportbox .btns{display:flex; flex-wrap:wrap; gap:10px; margin:12px 0}
+
+  ul.tight li{margin:.22em 0}
+  .foot{margin-top:54px; border-top:1px solid var(--line-2); padding-top:16px; font-size:.82rem; color:var(--ink-soft)}
+
+  @media(max-width:680px){
+    .grid.c2,.figrow,.famgrid{grid-template-columns:1fr}
+    .cover{padding:42px 24px}
+  }
+  @media print{
+    @page{size:A4; margin:15mm}
+    body{font-size:10.6pt; background:#fff}
+    .wrap{max-width:none; padding:0}
+    .no-print,.copy-btn,.savebar,.btn,.exportbox .btns{display:none !important}
+    .cover{padding:26mm 12mm; page-break-after:always}
+    section.sec{page-break-before:always; margin:0}
+    .card,.mail,.callout,.phase,.src,.fig,.fam,.ag{break-inside:avoid}
+    .tablewrap{overflow:visible} tr,thead{break-inside:avoid} thead{display:table-header-group}
+    textarea,input[type=text]{border:1px solid #bbb; background:#fff; min-height:54px}
+    h2,h3,h4{page-break-after:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="savebar no-print">
+  <span>✅ Tout ce que tu écris et coches est gardé sur cet appareil, automatiquement.</span>
+  <span><span class="st" id="saveState">Enregistré</span> &nbsp; <button class="btn ghost" onclick="window.print()">Imprimer</button></span>
+</div>
+
+<div class="wrap">
+
+  <header class="cover">
+    <p class="kicker">Ton espace de travail</p>
+    <h1>Le secteur culturel autour de Saumur</h1>
+    <p class="sub">Explorer les acteurs, y voir plus clair, et décider qui rencontrer — à ton rythme.</p>
+    <div class="meta">
+      <span><b>Pour toi,</b> Louise</span>
+      <span><b>Zone&nbsp;:</b> Saumur &amp; Val de Loire</span>
+      <span><b>Mis à jour&nbsp;:</b> septembre&nbsp;2026</span>
+    </div>
+  </header>
+
+  <div class="howto">
+    <h2>Comment ça marche</h2>
+    <p>Cet espace est à toi. Il suit trois étapes, dans l'ordre&nbsp;:</p>
+    <ol>
+      <li><b>Explorer</b> — qui fait de la culture dans le coin, et une action simple pour entrer en contact avec chacun.</li>
+      <li><b>Y voir plus clair</b> — quelques questions pour poser ce que tu cherches vraiment.</li>
+      <li><b>Passer à l'action</b> — de petites choses à faire, quand tu te sens prête.</li>
+    </ol>
+    <p class="rassure">Pas besoin de tout faire d'un coup, ni dans l'ordre. Tu remplis quand tu veux, un morceau à la fois. Quand tu le souhaites, tu m'envoies où tu en es (bouton tout en bas) et on en parle ensemble.</p>
+  </div>
+
+  <!-- ====== 1. CARTE DES ACTEURS ====== -->
+  <section class="sec" id="carte">
+    <h2><span class="num">ÉTAPE 1</span>La carte des acteurs</h2>
+    <p class="intro-sec">Les acteurs de la culture autour de Saumur, rangés en 6 familles. Pour chacun&nbsp;: en deux mots ce qu'il fait, et <b>une action concrète</b> pour entrer en contact. Coche «&nbsp;ça m'intéresse&nbsp;» au fil de ta lecture, sans réfléchir&nbsp;: ça servira pour la suite.</p>
+
+    <div class="famgrid">
+      <div class="fam c1"><span class="ic">🏛️</span><h4>Patrimoine &amp; musées</h4><ul><li>Fontevraud</li><li>Château de Montsoreau</li><li>Château-Musée de Saumur</li><li>Troglodytes</li></ul></div>
+      <div class="fam c2"><span class="ic">🎭</span><h4>Spectacle vivant &amp; musique</h4><ul><li>Le Dôme</li><li>Musicales de Montsoreau</li><li>Festival d'Anjou</li></ul></div>
+      <div class="fam c3"><span class="ic">🐎</span><h4>Cheval &amp; patrimoine vivant</h4><ul><li>Cadre Noir de Saumur</li></ul></div>
+      <div class="fam c4"><span class="ic">🍇</span><h4>Vin &amp; culture</h4><ul><li>Festivini</li><li>Bouvet-Ladubay (art&nbsp;+&nbsp;vin)</li><li>Maisons de vin</li></ul></div>
+      <div class="fam c5"><span class="ic">🏢</span><h4>Collectivités <small>(qui recrutent)</small></h4><ul><li>Agglo &amp; Ville de Saumur</li><li>Département · Région</li></ul></div>
+      <div class="fam c6"><span class="ic">🤝</span><h4>Réseaux <small>(portes faciles)</small></h4><ul><li>Office de tourisme</li><li>NVNC (ton réseau)</li></ul></div>
+    </div>
+
+    <h3>🏛️ Patrimoine &amp; musées</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
+      <tbody>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-fontevraud" data-label="Abbaye de Fontevraud + Musée d'Art Moderne"></td>
+          <td><b>Abbaye de Fontevraud</b><br><small>+ Musée d'Art Moderne</small></td>
+          <td>Très grand site, beaucoup de public, une programmation toute l'année.</td>
+          <td class="act">Va sur <b>fontevraud.fr</b> (onglet Recrutement). Écris à <b>recrutement@fontevraud.fr</b>, ou demande un rendez-vous au directeur <b>Antoine Godbert</b> sur LinkedIn. Bientôt&nbsp;: passe voir l'expo photo (jusqu'au 4&nbsp;oct.).</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-montsoreau" data-label="Château de Montsoreau (art contemporain)"></td>
+          <td><b>Château de Montsoreau</b><br><small>art contemporain</small></td>
+          <td>Musée d'art contemporain dans un château. Il fête ses 10&nbsp;ans en 2026.</td>
+          <td class="act">Regarde <b>chateau-montsoreau.com</b>. L'anniversaire est le bon moment pour proposer un coup de main&nbsp;: écris via le site, ou contacte le fondateur <b>Philippe Méaille</b> sur LinkedIn.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-chateausaumur" data-label="Château-Musée de Saumur (Ville)"></td>
+          <td><b>Château-Musée de Saumur</b><br><small>Ville de Saumur</small></td>
+          <td>Le musée de la Ville, rouvert début 2026, deux expositions en cours.</td>
+          <td class="act">Va le <b>visiter</b> (c'est un bon prétexte), puis écris au service culture de la Ville&nbsp;: <b>communication@ville-saumur.fr</b>.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-troglo" data-label="Sites troglodytiques"></td>
+          <td><b>Sites troglodytiques</b><br><small>Pierre et Lumière, Dénezé, Doué, Turquant…</small></td>
+          <td>Une quinzaine de lieux, souvent de petites équipes.</td>
+          <td class="act">Choisis-en 1 ou 2 à <b>visiter</b> (liste sur <b>ot-saumur.fr</b>). Sur place, demande simplement qui s'occupe de l'accueil et de la communication.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-chateaux" data-label="Châteaux de Brézé & Montreuil-Bellay"></td>
+          <td><b>Brézé &amp; Montreuil-Bellay</b><br><small>châteaux privés</small></td>
+          <td>Beaux châteaux ouverts à la visite et à l'événementiel.</td>
+          <td class="act">Regarde leurs sites, puis repère sur LinkedIn la personne en charge de la communication.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>🎭 Spectacle vivant &amp; musique</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
+      <tbody>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-dome" data-label="Le Dôme (scène de l'agglo)"></td>
+          <td><b>Le Dôme</b><br><small>la scène de l'agglo</small></td>
+          <td>Théâtre, musique, danse + école de musique. Nouvelle saison en cours.</td>
+          <td class="act">Va voir un <b>spectacle</b>. Puis écris à la Direction des affaires culturelles de l'agglo (via <b>theatreledome.saumurvaldeloire.fr</b>) pour rencontrer l'équipe relations publiques.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-musicales" data-label="Musicales de Montsoreau"></td>
+          <td><b>Musicales de Montsoreau</b></td>
+          <td>Festival de musique classique l'été (une association).</td>
+          <td class="act">Écris-leur (via <b>ot-saumur.fr</b>) pour proposer ton aide en communication ou partenariats.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-anjou" data-label="Festival d'Anjou"></td>
+          <td><b>Festival d'Anjou</b></td>
+          <td>Grand festival de théâtre l'été, porté par le Département.</td>
+          <td class="act">Suis-le, et passe par le Département (voir plus bas).</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>🐎 Cheval &amp; patrimoine vivant</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
+      <tbody>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-cadrenoir" data-label="Cadre Noir de Saumur / IFCE"></td>
+          <td><b>Cadre Noir de Saumur</b><br><small>IFCE</small></td>
+          <td>Institution équestre connue partout, avec des galas et beaucoup d'événements.</td>
+          <td class="act">Assiste à un <b>gala</b> (les Musicales, 16-18&nbsp;oct.). Contacte l'IFCE via <b>ifce.fr/cadre-noir</b>.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>🍇 Vin &amp; culture</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
+      <tbody>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-festivini" data-label="Festivini"></td>
+          <td><b>Festivini</b></td>
+          <td>Le festival de la culture du vin, de juin à septembre.</td>
+          <td class="act">Regarde <b>festivini.com</b>, puis propose ton aide pour l'édition d'été (communication, partenariats, événements).</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-bouvet" data-label="Bouvet-Ladubay (centre d'art)"></td>
+          <td><b>Bouvet-Ladubay</b><br><small>centre d'art dans les caves</small></td>
+          <td>Un centre d'art contemporain installé dans les caves (art&nbsp;+&nbsp;vin).</td>
+          <td class="act">Visite-le, puis contacte la maison (par son site ou LinkedIn).</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-maisonsvin" data-label="Maisons de vin (Ackerman, Langlois…)"></td>
+          <td><b>Maisons de vin</b><br><small>Ackerman, Langlois, Louis de Grenelle…</small></td>
+          <td>Beaucoup organisent des expos et des événements culturels.</td>
+          <td class="act">Repère celles qui font de la culture, et écris à leur service communication / œnotourisme.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>🏢 Collectivités <small>— qui recrute dans la culture publique</small></h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
+      <tbody>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-agglo" data-label="Agglo Saumur Val de Loire (culture)"></td>
+          <td><b>Agglo Saumur Val de Loire</b><br><small>affaires culturelles</small></td>
+          <td>La collectivité qui porte le plus la culture (spectacle vivant, médiathèques, saison).</td>
+          <td class="act">Va sur <b>saumurvaldeloire.fr</b> (rubriques Culture et Emplois). Écris à la Direction des affaires culturelles. <span class="b b-warn">nom à confirmer</span> direction&nbsp;: Gaël Legendre.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-ville" data-label="Ville de Saumur (Ville d'art et d'histoire)"></td>
+          <td><b>Ville de Saumur</b><br><small>Ville d'art et d'histoire</small></td>
+          <td>Le label patrimoine de la ville + le château-musée. Une candidature «&nbsp;Pays d'art et d'histoire&nbsp;» est en cours.</td>
+          <td class="act">Écris à <b>villearthistoire@ville-saumur.fr</b>. Bonne question à poser&nbsp;: «&nbsp;où en est la candidature Pays d'art et d'histoire&nbsp;?&nbsp;» (ça peut créer des postes).</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-departement" data-label="Département de Maine-et-Loire (culture)"></td>
+          <td><b>Département de Maine-et-Loire</b></td>
+          <td>Culture, patrimoine, archives + le Festival d'Anjou.</td>
+          <td class="act">Va sur <b>recrutement.maine-et-loire.fr</b>. Écris à <b>contact.culture@maine-et-loire.fr</b>.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-region" data-label="Région Pays de la Loire / DRAC"></td>
+          <td><b>Région</b> &amp; <b>DRAC</b></td>
+          <td>La Région (dont Fontevraud) et l'État financent et labellisent la culture.</td>
+          <td class="act">Surtout utile à connaître pour les financements. Garde un œil sur <b>paysdelaloire.fr</b>.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>🤝 Réseaux <small>— les portes les plus faciles pour commencer</small></h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
+      <tbody>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-tourisme" data-label="Saumur Val de Loire Tourisme (office)"></td>
+          <td><b>Office de tourisme</b><br><small>Saumur Val de Loire Tourisme</small></td>
+          <td>Ils connaissent tout le monde dans le coin.</td>
+          <td class="act"><b>Commence par eux.</b> Demande un rendez-vous (<b>ot-saumur.fr</b>)&nbsp;: c'est le plus simple pour te faire présenter aux autres.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-fondation" data-label="Fondation du patrimoine / associations"></td>
+          <td><b>Fondation du patrimoine</b><br><small>&amp; associations</small></td>
+          <td>Un peu de bénévolat = un réseau tout de suite, et une ligne fraîche sur ton CV.</td>
+          <td class="act">Regarde <b>fondation-patrimoine.org</b> et les associations du coin.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-nvnc" data-label="NVNC (ton réseau)"></td>
+          <td><b>NVNC</b><br><small>ton réseau de communicants</small></td>
+          <td>Tu en es déjà membre&nbsp;: mêmes codes, entrée facile.</td>
+          <td class="act">Écris à <b>nvnc.nivuniconnu@gmail.com</b> et demande qui contacter côté Saumur.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="myactors">
+      <h3>➕ Tes acteurs à toi</h3>
+      <p class="hint" style="font-size:.9rem;color:var(--ink-soft);margin:.2em 0 8px">Tu connais peut-être déjà des lieux, des personnes ou des pistes. Note-les ici (un par ligne, avec ce que tu en sais ou ce que tu comptes faire). On les ajoutera à la carte.</p>
+      <textarea id="myactors" data-persist data-label="Mes acteurs à moi" style="min-height:90px" placeholder="Ex. « La galerie de X à Saumur — j'aime beaucoup, demander à la rencontrer »
+« Une amie connaît quelqu'un à Fontevraud »"></textarea>
+    </div>
+
+    <div class="callout tip"><span class="lbl">Petit conseil</span> Si tu ne sais pas par où commencer, prends l'<b>office de tourisme</b>&nbsp;: un seul rendez-vous t'ouvre plein de portes. Et à la fin de chaque rencontre, pose toujours la question&nbsp;: «&nbsp;<b>qui d'autre me conseillez-vous de rencontrer&nbsp;?</b>&nbsp;»</div>
+  </section>
+
+  <!-- ====== 2. QUESTIONNAIRE ====== -->
+  <section class="sec" id="clarifier">
+    <h2><span class="num">ÉTAPE 2</span>Y voir plus clair</h2>
+    <p class="intro-sec">Maintenant que tu as vu le paysage, prends un moment pour toi. Ces questions t'aident à mettre des mots sur ce que tu cherches. Réponds simplement&nbsp;: il n'y a pas de bonne réponse. C'est dans la continuité de ce que tu as travaillé avec ta coach.</p>
+
+    <div class="quiz">
+      <div class="q">
+        <span class="qn">1</span>
+        <label class="ql" for="q1">Où tu en es en ce moment.</label>
+        <p class="hint">Ce que ton travail avec ta coach t'a fait comprendre&nbsp;: une envie, un besoin, quelque chose que tu ne veux plus.</p>
+        <textarea id="q1" data-persist></textarea>
+      </div>
+
+      <div class="q">
+        <span class="qn">2</span>
+        <label class="ql">Dans la culture, qu'est-ce qui t'attire le plus&nbsp;?</label>
+        <p class="hint">Coche ce qui te parle.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" data-persist id="q2a" data-label="Patrimoine & monuments">Patrimoine &amp; monuments</label>
+          <label class="chip"><input type="checkbox" data-persist id="q2b" data-label="Musées & expositions">Musées &amp; expositions</label>
+          <label class="chip"><input type="checkbox" data-persist id="q2c" data-label="Art contemporain">Art contemporain</label>
+          <label class="chip"><input type="checkbox" data-persist id="q2d" data-label="Spectacle vivant">Spectacle vivant</label>
+          <label class="chip"><input type="checkbox" data-persist id="q2e" data-label="Rencontrer les publics / médiation">Rencontrer les publics</label>
+          <label class="chip"><input type="checkbox" data-persist id="q2f" data-label="Partenariats & mécénat">Partenariats &amp; mécénat</label>
+          <label class="chip"><input type="checkbox" data-persist id="q2g" data-label="Communication & contenus">Communication &amp; contenus</label>
+          <label class="chip"><input type="checkbox" data-persist id="q2h" data-label="Événements & festivals">Événements &amp; festivals</label>
+          <label class="chip"><input type="checkbox" data-persist id="q2i" data-label="Tourisme & vin">Tourisme &amp; vin</label>
+          <label class="chip"><input type="checkbox" data-persist id="q2j" data-label="Transmission, jeunesse">Transmission, jeunesse</label>
+        </div>
+        <input type="text" data-persist id="q2top" data-label="Mes préférés" placeholder="Si tu devais en garder 2 ou 3, lesquels ?">
+      </div>
+
+      <div class="q">
+        <span class="qn">3</span>
+        <label class="ql" for="q3a">Ce que tu aimes faire (et où tu es douée).</label>
+        <p class="hint">Les choses où le temps passe vite, où on vient te chercher.</p>
+        <textarea id="q3a" data-persist></textarea>
+        <label class="ql" for="q3b" style="margin-top:12px">Et ce que tu ne veux plus faire au quotidien.</label>
+        <textarea id="q3b" data-persist></textarea>
+      </div>
+
+      <div class="q">
+        <span class="qn">4</span>
+        <label class="ql">Le type de lieu où tu te verrais bien.</label>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" data-persist id="q4a" data-label="Collectivité">Une collectivité</label>
+          <label class="chip"><input type="checkbox" data-persist id="q4b" data-label="Grand site (abbaye, château, musée)">Un grand site (abbaye, château, musée)</label>
+          <label class="chip"><input type="checkbox" data-persist id="q4c" data-label="Association / festival">Une association / un festival</label>
+          <label class="chip"><input type="checkbox" data-persist id="q4d" data-label="Entreprise culturelle ou du vin">Une entreprise (culture ou vin)</label>
+          <label class="chip"><input type="checkbox" data-persist id="q4e" data-label="À mon compte / indépendante">À mon compte</label>
+          <label class="chip"><input type="checkbox" data-persist id="q4f" data-label="Je ne sais pas encore">Je ne sais pas encore</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="qn">5</span>
+        <label class="ql" for="q5">Tes conditions à toi.</label>
+        <p class="hint">Ce qui compte pour toi&nbsp;: temps de trajet, rythme, ambiance… et ce qui te ferait dire non.</p>
+        <textarea id="q5" data-persist></textarea>
+      </div>
+
+      <div class="q">
+        <span class="qn">6</span>
+        <label class="ql" for="q6">Ce que tu aimerais apporter ici.</label>
+        <p class="hint">Ce que Saumur t'inspire, et ce que tu aurais envie d'y faire.</p>
+        <textarea id="q6" data-persist></textarea>
+      </div>
+
+      <div class="q">
+        <span class="qn">7 · POUR RÉSUMER</span>
+        <label class="ql" for="q7">Tes premières envies&nbsp;: par quoi tu veux commencer&nbsp;?</label>
+        <p class="hint">Reprends ce que tu as coché dans la carte. Note ici les <b>2 ou 3 acteurs à rencontrer</b> ou les <b>pistes à explorer</b> en premier. C'est ce qu'on regardera ensemble.</p>
+        <textarea id="q7" data-persist style="min-height:90px" placeholder="1.
+2.
+3."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 3. PLAN D'ACTION ====== -->
+  <section class="sec" id="plan">
+    <h2><span class="num">ÉTAPE 3</span>Passer à l'action</h2>
+    <p class="intro-sec">Rien d'obligatoire, et surtout pas tout en même temps. Choisis une ou deux choses, et coche-les quand c'est fait. L'idée&nbsp;: aller rencontrer les gens pour te faire connaître, tout doucement.</p>
+
+    <div id="planlist">
+    <div class="phase">
+      <h3>Pour commencer <span class="when">cette semaine</span></h3>
+      <ul class="check">
+        <li><label><input type="checkbox" data-persist id="pa1"><span> Cocher dans la carte 5 acteurs qui m'attirent.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pa2"><span> Répondre au questionnaire, même en partie.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pa3"><span> Écrire à l'office de tourisme pour un premier rendez-vous.</span></label></li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h3>Ce mois-ci <span class="when">sans pression</span></h3>
+      <ul class="check">
+        <li><label><input type="checkbox" data-persist id="pb1"><span> Aller voir une expo ou un spectacle (idées dans l'agenda).</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pb2"><span> Écrire à 2 ou 3 acteurs de ma liste (modèles de mails plus bas).</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pb3"><span> Réécrire à mon réseau NVNC.</span></label></li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h3>Quand je me sens prête <span class="when">à mon rythme</span></h3>
+      <ul class="check">
+        <li><label><input type="checkbox" data-persist id="pc1"><span> Demander des rendez-vous pour rencontrer les gens.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pc2"><span> Après chaque rencontre, demander « qui d'autre je pourrais voir ? ».</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pc3"><span> Envoyer à Romain où j'en suis, pour qu'on en parle.</span></label></li>
+      </ul>
+    </div>
+    </div>
+  </section>
+
+  <!-- ====== 4. AGENDA ====== -->
+  <section class="sec" id="agenda">
+    <h2><span class="num">EN PLUS</span>L'agenda culturel</h2>
+    <p class="intro-sec">Des occasions d'y aller, de voir du monde — et un prétexte tout trouvé pour écrire ensuite («&nbsp;j'étais à… et j'ai adoré, pourrait-on échanger&nbsp;?&nbsp;»).</p>
+    <div class="agenda">
+      <div class="ag soon"><div class="date">Jusqu'au 4 oct. 2026</div><div class="ev">Fontevraud — expo « Chambre noire, toile blanche »</div><div class="why">Se termine bientôt&nbsp;: une visite = un sujet d'accroche immédiat.</div></div>
+      <div class="ag soon"><div class="date">15 oct. 2026</div><div class="ev">Colloque des 1000 ans de l'abbaye de Saint-Hilaire-Saint-Florent (Saumur)</div><div class="why">On y croise des acteurs culturels et des décideurs.</div></div>
+      <div class="ag soon"><div class="date">16-18 oct. 2026</div><div class="ev">Les Musicales du Cadre Noir</div><div class="why">La grande vitrine du Cadre Noir.</div></div>
+      <div class="ag"><div class="date">Jusqu'au 29 nov. 2026</div><div class="ev">Château-Musée de Saumur — expos « Luxe amer » &amp; « Mondes brodés »</div><div class="why">À voir avant d'écrire au service culture de la Ville.</div></div>
+      <div class="ag"><div class="date">28 nov. 2026 → mars 2027</div><div class="ev">« Noël à Fontevraud » — parcours immersif, concerts</div><div class="why">Un gros temps fort familial.</div></div>
+      <div class="ag"><div class="date">Toute l'année 2026</div><div class="ev">Château de Montsoreau — les 10 ans du musée</div><div class="why">Le bon moment pour se manifester.</div></div>
+      <div class="ag"><div class="date">Été 2027</div><div class="ev">Musicales de Montsoreau · Festival d'Anjou · Festivini</div><div class="why">Les grands rendez-vous&nbsp;: on peut s'y préparer dès l'hiver.</div></div>
+    </div>
+  </section>
+
+  <!-- ====== 5. MAILS ====== -->
+  <section class="sec" id="mails">
+    <h2><span class="num">EN PLUS</span>Des modèles de mails</h2>
+    <p class="intro-sec">Trois exemples pour t'aider à démarrer. Les <span class="var">[mots entre crochets]</span> sont à remplacer. Reste simple et sincère&nbsp;: un mail court marche mieux qu'un long.</p>
+
+    <div class="mail">
+      <div class="head"><span class="t">1 — Demander à rencontrer quelqu'un (sans demander de travail)</span><button class="copy-btn" data-target="cm1">Copier</button></div>
+      <p class="who"><b>À qui&nbsp;:</b> la direction ou le·la responsable d'un lieu culturel.</p>
+      <div class="body" id="cm1"><span class="obj">Objet : Nouvelle arrivante à Saumur — votre regard sur le secteur culturel</span>
+
+Madame, Monsieur [Nom],
+
+Je viens de m'installer à Saumur avec ma famille. Historienne de l'art de formation (École du Louvre) et communicante depuis plus de dix ans, je souhaite construire mon projet dans la culture, ici.
+
+Avant tout, je cherche à mieux comprendre le secteur du Saumurois — et [nom du lieu] est un endroit que j'apprécie beaucoup, notamment [détail précis : votre programmation / votre travail sur les publics].
+
+Accepteriez-vous de m'accorder 20 minutes, en visio ou autour d'un café ? Je ne viens rien vendre : j'aimerais surtout profiter de votre regard. Je m'adapte à vos disponibilités.
+
+Merci beaucoup,
+Louise [Nom] — [tél.] — [e-mail] — [LinkedIn]</div>
+    </div>
+
+    <div class="mail">
+      <div class="head"><span class="t">2 — Proposer ses services à un lieu culturel</span><button class="copy-btn" data-target="cm2">Copier</button></div>
+      <p class="who"><b>À qui&nbsp;:</b> la personne qui a le besoin (direction, communication, développement), pas seulement les RH.</p>
+      <div class="body" id="cm2"><span class="obj">Objet : Un coup de main pour votre communication et vos partenariats ?</span>
+
+Madame, Monsieur [Nom],
+
+Installée à Saumur depuis la rentrée, je propose à un projet culturel du territoire deux compétences : la communication (presse, contenus) et le développement (partenariats, mécénat).
+
+Votre actualité — [ex. les 10 ans du musée / votre nouvelle saison] — donne justement envie d'agir. Concrètement, je peux :
+• faire venir et fidéliser de nouveaux publics ;
+• trouver des partenaires et du mécénat ;
+• porter la communication d'un événement ou d'une exposition.
+
+Seriez-vous disponible pour un court échange ? Je peux vous présenter 2 ou 3 idées concrètes.
+
+Bien à vous,
+Louise [Nom] — [coordonnées]</div>
+    </div>
+
+    <div class="mail">
+      <div class="head"><span class="t">3 — Relancer, sans insister (4-5 jours après)</span><button class="copy-btn" data-target="cm3">Copier</button></div>
+      <p class="who"><b>Quand&nbsp;:</b> si tu n'as pas de réponse. Apporte une petite idée.</p>
+      <div class="body" id="cm3"><span class="obj">Objet : Re: [objet] — une idée pour [le lieu]</span>
+
+Bonjour [Prénom],
+
+Je me permets de revenir vers vous avec une idée : [ex. « pour toucher les familles cet hiver, une visite courte le dimanche autour de l'expo pourrait bien fonctionner »].
+
+Je reste très intéressée par un échange, même bref, quand vous aurez un moment.
+
+Bien à vous,
+Louise [Nom]</div>
+    </div>
+  </section>
+
+  <!-- ====== 6. REPÈRES & VEILLE ====== -->
+  <section class="sec" id="reperes">
+    <h2><span class="num">EN PLUS</span>Quelques repères &amp; comment rester au courant</h2>
+    <p class="intro-sec">Pour te rassurer&nbsp;: la culture, c'est un vrai secteur, qui emploie et qui recrute.</p>
+    <div class="figrow">
+      <div class="fig"><span class="n">779 600</span><span class="l">personnes ont un métier culturel en France (2023)</span></div>
+      <div class="fig alt"><span class="n">+13 %</span><span class="l">d'emploi culturel depuis 2019</span></div>
+      <div class="fig alt2"><span class="n">1<sup>re</sup></span><span class="l">Saumur, 1<sup>re</sup> destination touristique de l'intérieur des Pays de la Loire</span></div>
+    </div>
+    <p><small>Sources&nbsp;: <i>Chiffres clés 2025</i> du ministère de la Culture&nbsp;; Saumur Val de Loire Tourisme.</small></p>
+
+    <h3>Pour recevoir les offres sans les chercher</h3>
+    <div class="src"><h4>ProfilCulture</h4><p>Le site de référence des emplois de la culture. Crée une alerte&nbsp;: région Pays de la Loire. <span class="url">profilculture.com</span></p></div>
+    <div class="src"><h4>emploi-territorial.fr</h4><p>Pour les postes des collectivités (agglo, Ville, Département, médiathèques). Alerte&nbsp;: Maine-et-Loire (049) + mots-clés «&nbsp;culture, patrimoine, médiation&nbsp;». <span class="url">emploi-territorial.fr</span></p></div>
+    <div class="src"><h4>Les newsletters des lieux</h4><p>Abonne-toi aux lettres et pages LinkedIn de Fontevraud, Montsoreau, Le Dôme, du Cadre Noir, de l'office de tourisme… Les besoins y apparaissent souvent en premier.</p></div>
+  </section>
+
+  <!-- ====== 7. EXPORT ====== -->
+  <section class="sec" id="envoyer">
+    <h2><span class="num">QUAND TU VEUX</span>M'envoyer où tu en es</h2>
+    <p class="intro-sec">Rien ne part tout seul&nbsp;: c'est toi qui choisis. Quand tu veux, récupère ton travail avec un des boutons ci-dessous et envoie-le à Romain (par mail ou message). Il garde une trace, et on fait évoluer cet espace selon tes réponses et tes idées.</p>
+    <div class="exportbox">
+      <div class="btns">
+        <button class="btn big" id="copyAll">📋 Copier tout mon travail</button>
+        <button class="btn" id="downloadAll">⬇️ Télécharger (fichier .txt)</button>
+      </div>
+      <p><small id="exportMsg" style="color:var(--ok-ink)"></small></p>
+      <p style="margin:.2em 0 0"><small>Astuce&nbsp;: «&nbsp;Copier&nbsp;» met tout dans ton presse-papier — tu n'as plus qu'à coller dans un message. «&nbsp;Télécharger&nbsp;» crée un petit fichier à joindre.</small></p>
+    </div>
+  </section>
+
+  <p class="foot">Espace de travail personnel préparé pour Louise · septembre 2026 · On le fait évoluer ensemble. Informations issues de sources publiques (sites des structures et collectivités, ministère de la Culture, office de tourisme)&nbsp;; les noms et les dates peuvent changer, à revérifier au moment de contacter. Ce que tu écris reste sur ton appareil&nbsp;; rien n'est envoyé sans que tu le décides.</p>
+
+</div>
+
+<script>
+  // Copie des modèles de mail
+  document.querySelectorAll('.copy-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.getElementById(b.getAttribute('data-target'));
+      if(!t)return;
+      copyText(t.innerText).then(function(ok){ if(ok){var o=b.textContent; b.textContent='Copié ✓'; setTimeout(function(){b.textContent=o;},1600);} });
+    });
+  });
+
+  // Presse-papier avec repli
+  function copyText(txt){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(txt).then(function(){return true;},function(){return fallbackCopy(txt);});
+    }
+    return Promise.resolve(fallbackCopy(txt));
+  }
+  function fallbackCopy(txt){
+    try{var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); var ok=document.execCommand('copy'); ta.remove(); return ok;}catch(e){return false;}
+  }
+
+  // Persistance locale
+  var KEY='louise-culture-v1-';
+  var saveState=document.getElementById('saveState');
+  function flashSaved(){ if(saveState){saveState.textContent='Enregistré ✓';} }
+  function saveEl(el){
+    try{
+      if(el.type==='checkbox'){localStorage.setItem(KEY+el.id, el.checked?'1':'0');}
+      else if(el.type==='radio'){ if(el.checked) localStorage.setItem(KEY+el.name, el.value); }
+      else{ localStorage.setItem(KEY+el.id, el.value); }
+      flashSaved();
+    }catch(e){}
+  }
+  function restoreAll(){
+    document.querySelectorAll('[data-persist]').forEach(function(el){
+      try{
+        if(el.type==='checkbox'){ var v=localStorage.getItem(KEY+el.id); if(v!==null) el.checked=(v==='1'); }
+        else if(el.type==='radio'){ var rv=localStorage.getItem(KEY+el.name); if(rv!==null && el.value===rv) el.checked=true; }
+        else{ var tv=localStorage.getItem(KEY+el.id); if(tv!==null) el.value=tv; }
+      }catch(e){}
+    });
+  }
+  document.querySelectorAll('[data-persist]').forEach(function(el){
+    var ev=(el.tagName==='TEXTAREA'||el.type==='text')?'input':'change';
+    el.addEventListener(ev,function(){ saveEl(el); });
+  });
+
+  // Export de tout le travail
+  function buildExport(){
+    var L=[];
+    L.push('MON TRAVAIL — Le secteur culturel autour de Saumur');
+    L.push('(exporté le '+ new Date().toLocaleDateString('fr-FR') +')');
+    L.push('');
+    var interested=[].slice.call(document.querySelectorAll('.interest:checked')).map(function(c){return '- '+(c.getAttribute('data-label')||c.id);});
+    L.push('== ACTEURS QUE JE VEUX EXPLORER ==');
+    L.push(interested.length? interested.join('\n') : '(rien coché pour l\'instant)');
+    L.push('');
+    var mine=document.getElementById('myactors');
+    L.push('== MES ACTEURS À MOI ==');
+    L.push(mine && mine.value.trim() ? mine.value.trim() : '(vide)');
+    L.push('');
+    L.push('== CE QUE JE CHERCHE ==');
+    document.querySelectorAll('#clarifier .q').forEach(function(q){
+      var lab=q.querySelector('.ql'); var qlabel=lab?lab.textContent.trim():'';
+      var parts=[];
+      q.querySelectorAll('textarea[data-persist], input[type=text][data-persist]').forEach(function(t){ if(t.value.trim()) parts.push(t.value.trim()); });
+      var chips=[].slice.call(q.querySelectorAll('input[type=checkbox][data-persist]:checked')).map(function(c){return c.getAttribute('data-label')||'';}).filter(Boolean);
+      if(chips.length) parts.push('→ '+chips.join(', '));
+      L.push('• '+qlabel);
+      L.push(parts.length? parts.join('\n') : '(pas encore répondu)');
+      L.push('');
+    });
+    var done=[].slice.call(document.querySelectorAll('#planlist .check input:checked')).map(function(c){var s=c.parentNode; return '- '+(s?s.textContent.trim():'');});
+    L.push('== CE QUE J\'AI COCHÉ DANS LE PLAN ==');
+    L.push(done.length? done.join('\n') : '(rien coché)');
+    L.push('');
+    return L.join('\n');
+  }
+  var exportMsg=document.getElementById('exportMsg');
+  var copyBtn=document.getElementById('copyAll');
+  if(copyBtn){ copyBtn.addEventListener('click',function(){
+    copyText(buildExport()).then(function(ok){ exportMsg.textContent= ok?'Copié ✓ — colle-le dans un message pour Romain.':'La copie n\'a pas marché — utilise plutôt « Télécharger ».'; });
+  });}
+  var dlBtn=document.getElementById('downloadAll');
+  if(dlBtn){ dlBtn.addEventListener('click',function(){
+    try{
+      var blob=new Blob([buildExport()],{type:'text/plain;charset=utf-8'});
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='mon-travail-culture-saumur.txt';
+      document.body.appendChild(a); a.click();
+      setTimeout(function(){URL.revokeObjectURL(a.href); a.remove();},600);
+      exportMsg.textContent='Fichier téléchargé ✓ — joins-le à un message pour Romain.';
+    }catch(e){ exportMsg.textContent='Téléchargement impossible ici — utilise plutôt « Copier ».'; }
+  });}
+
+  restoreAll();
+</script>
+</body>
+</html>
