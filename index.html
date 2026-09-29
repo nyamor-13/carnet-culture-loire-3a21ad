@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Ton espace — le secteur culturel autour de Saumur</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+
 <style>
   :root{
     --ardoise:#2f333b; --ardoise-2:#454b57; --bordeaux:#6e2433; --bordeaux-2:#8a3145;
@@ -155,6 +157,14 @@
   .links a:hover{color:var(--bordeaux)}
   .links small{display:block; color:var(--ink-soft); font-weight:400; font-size:.78rem; font-family:ui-monospace,Menlo,Consolas,monospace}
   @media(max-width:680px){.links{columns:1}}
+  .apport{color:var(--vert); font-size:.86rem; display:block; margin-top:6px}
+  .apport b{color:var(--vert)}
+  #map{height:440px; width:100%; border:1px solid var(--line-2); border-radius:12px; margin:8px 0 6px; z-index:0}
+  .maplegend{display:flex; flex-wrap:wrap; gap:12px 18px; font-size:.85rem; color:var(--ink-soft); margin:6px 0 2px}
+  .maplegend span{display:inline-flex; align-items:center; gap:6px}
+  .maplegend i{width:12px; height:12px; border-radius:50%; display:inline-block; border:2px solid #fff; box-shadow:0 0 0 1px var(--line-2)}
+  .map-print{display:none; padding:16px}
+  @media(max-width:680px){#map{height:340px}}
   ul.tight li{margin:.22em 0}
   .foot{margin-top:54px; border-top:1px solid var(--line-2); padding-top:16px; font-size:.82rem; color:var(--ink-soft)}
 
@@ -171,6 +181,7 @@
     section.sec{page-break-before:always; margin:0}
     .card,.mail,.callout,.phase,.src,.fig,.fam,.ag{break-inside:avoid}
     .tablewrap{overflow:visible} tr,thead{break-inside:avoid} thead{display:table-header-group}
+    #map,.maplegend{display:none !important} .map-print{display:block; color:#565b63; font-style:italic}
     textarea,input[type=text]{border:1px solid #bbb; background:#fff; min-height:54px}
     h2,h3,h4{page-break-after:avoid}
   }
@@ -212,6 +223,8 @@
     <h2><span class="num">ÉTAPE 1</span>La carte des acteurs</h2>
     <p class="intro-sec">Les acteurs de la culture autour de Saumur, rangés en 6 familles. Pour chacun&nbsp;: en deux mots ce qu'il fait, et <b>une action concrète</b> pour entrer en contact. Coche «&nbsp;ça m'intéresse&nbsp;» au fil de ta lecture, sans réfléchir&nbsp;: ça servira pour la suite.</p>
 
+    <div class="callout"><span class="lbl">Avant de te lancer</span> Demander un échange ne dérange pas, au contraire&nbsp;: les gens de la culture adorent parler de leur métier et de leur territoire. Même si un contact n'a rien à te proposer sur le moment, l'échange lui apporte aussi quelque chose — un regard neuf, une idée, quelqu'un de motivé à connaître, un futur relais. Tu ne demandes pas une faveur&nbsp;: tu proposes une rencontre utile aux deux.</div>
+
     <div class="famgrid">
       <div class="fam c1"><span class="ic">🏛️</span><h4>Patrimoine &amp; musées</h4><ul><li>Fontevraud</li><li>Château de Montsoreau</li><li>Château-Musée de Saumur</li><li>Troglodytes</li></ul></div>
       <div class="fam c2"><span class="ic">🎭</span><h4>Spectacle vivant &amp; musique</h4><ul><li>Le Dôme</li><li>Musicales de Montsoreau</li><li>Festival d'Anjou</li></ul></div>
@@ -221,29 +234,43 @@
       <div class="fam c6"><span class="ic">🤝</span><h4>Réseaux <small>(portes faciles)</small></h4><ul><li>Office de tourisme</li><li>NVNC (ton réseau)</li></ul></div>
     </div>
 
+    <h3>📍 Où ils se trouvent sur le territoire</h3>
+    <p class="intro-sec">Repère les lieux et les bureaux des acteurs. Clique sur un point pour voir le nom et le lien. Les points proches de Saumur se séparent quand tu zoomes.</p>
+    <div id="map"></div>
+    <div class="map-print">🗺️ Carte interactive des acteurs (visible en ligne) — Saumur au centre, Fontevraud et Montsoreau à l'est, Doué et Dénezé au sud-ouest, Saint-Hilaire-Saint-Florent au nord-ouest.</div>
+    <div class="maplegend">
+      <span><i style="background:#6e2433"></i> Patrimoine &amp; musées</span>
+      <span><i style="background:#5b4a6e"></i> Spectacle &amp; musique</span>
+      <span><i style="background:#2f333b"></i> Cheval</span>
+      <span><i style="background:#3d6a4f"></i> Vin &amp; culture</span>
+      <span><i style="background:#33566e"></i> Collectivités</span>
+      <span><i style="background:#a9854b"></i> Réseaux</span>
+    </div>
+    <p><small>Le Département (Angers) et la Région / DRAC (Nantes) sont plus loin, hors carte.</small></p>
+
     <h3>🏛️ Patrimoine &amp; musées</h3>
     <div class="tablewrap"><table>
       <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-fontevraud" data-label="Abbaye de Fontevraud + Musée d'Art Moderne"></td>
           <td><b>Abbaye de Fontevraud</b><br><small>+ Musée d'Art Moderne</small></td>
-          <td>Très grand site, beaucoup de public, une programmation toute l'année.</td>
+          <td>Très grand site, beaucoup de public, une programmation toute l'année.<div class="apport">💡 <b>Pour eux&nbsp;:</b> renouveler les publics et trouver des mécènes, c'est exactement ton croisement histoire de l'art + com + développement.</div></td>
           <td class="act">Va sur <b>fontevraud.fr</b> (onglet Recrutement). Écris à <b>recrutement@fontevraud.fr</b>, ou demande un rendez-vous au directeur <b>Antoine Godbert</b> sur LinkedIn. Bientôt&nbsp;: passe voir l'expo photo (jusqu'au 4&nbsp;oct.).</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-montsoreau" data-label="Château de Montsoreau (art contemporain)"></td>
           <td><b>Château de Montsoreau</b><br><small>art contemporain</small></td>
-          <td>Musée d'art contemporain dans un château. Il fête ses 10&nbsp;ans en 2026.</td>
+          <td>Musée d'art contemporain dans un château. Il fête ses 10&nbsp;ans en 2026.<div class="apport">💡 <b>Pour eux&nbsp;:</b> petite équipe, rayonnement international — ils ont besoin de raconter, de faire venir la presse et de monter des partenariats (ton anglais et ton italien aident).</div></td>
           <td class="act">Regarde <b>chateau-montsoreau.com</b>. L'anniversaire est le bon moment pour proposer un coup de main&nbsp;: écris via le site, ou contacte le fondateur <b>Philippe Méaille</b> sur LinkedIn.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-chateausaumur" data-label="Château-Musée de Saumur (Ville)"></td>
           <td><b>Château-Musée de Saumur</b><br><small>Ville de Saumur</small></td>
-          <td>Le musée de la Ville, rouvert début 2026, deux expositions en cours.</td>
+          <td>Le musée de la Ville, rouvert début 2026, deux expositions en cours.<div class="apport">💡 <b>Pour eux&nbsp;:</b> un musée en relance veut faire revenir les visiteurs et nouer du mécénat de restauration — ton terrain.</div></td>
           <td class="act">Va le <b>visiter</b> (c'est un bon prétexte), puis écris au service culture de la Ville&nbsp;: <b>communication@ville-saumur.fr</b>.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-troglo" data-label="Sites troglodytiques"></td>
           <td><b>Sites troglodytiques</b><br><small>Pierre et Lumière, Dénezé, Doué, Turquant…</small></td>
-          <td>Une quinzaine de lieux, souvent de petites équipes.</td>
+          <td>Une quinzaine de lieux, souvent de petites équipes.<div class="apport">💡 <b>Pour eux&nbsp;:</b> de petites structures qui manquent de temps pour la com — quelqu'un de polyvalent comme toi les rend vite plus visibles.</div></td>
           <td class="act">Choisis-en 1 ou 2 à <b>visiter</b> (liste sur <b>ot-saumur.fr</b>). Sur place, demande simplement qui s'occupe de l'accueil et de la communication.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-chateaux" data-label="Châteaux de Brézé & Montreuil-Bellay"></td>
           <td><b>Brézé &amp; Montreuil-Bellay</b><br><small>châteaux privés</small></td>
-          <td>Beaux châteaux ouverts à la visite et à l'événementiel.</td>
+          <td>Beaux châteaux ouverts à la visite et à l'événementiel.<div class="apport">💡 <b>Pour eux&nbsp;:</b> ils vivent de leur fréquentation et de leurs événements — tu sais valoriser un lieu et attirer du public.</div></td>
           <td class="act">Regarde leurs sites, puis repère sur LinkedIn la personne en charge de la communication.</td></tr>
       </tbody>
     </table></div>
@@ -254,15 +281,15 @@
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-dome" data-label="Le Dôme (scène de l'agglo)"></td>
           <td><b>Le Dôme</b><br><small>la scène de l'agglo</small></td>
-          <td>Théâtre, musique, danse + école de musique. Nouvelle saison en cours.</td>
+          <td>Théâtre, musique, danse + école de musique. Nouvelle saison en cours.<div class="apport">💡 <b>Pour eux&nbsp;:</b> une saison à remplir et des publics à élargir (familles, scolaires) — ton expérience des publics et de la com de projet sert directement.</div></td>
           <td class="act">Va voir un <b>spectacle</b>. Puis écris à la Direction des affaires culturelles de l'agglo (via <b>theatreledome.saumurvaldeloire.fr</b>) pour rencontrer l'équipe relations publiques.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-musicales" data-label="Musicales de Montsoreau"></td>
           <td><b>Musicales de Montsoreau</b></td>
-          <td>Festival de musique classique l'été (une association).</td>
+          <td>Festival de musique classique l'été (une association).<div class="apport">💡 <b>Pour eux&nbsp;:</b> une association a toujours besoin de bras côté com, partenariats et mécénat — pile toi.</div></td>
           <td class="act">Écris-leur (via <b>ot-saumur.fr</b>) pour proposer ton aide en communication ou partenariats.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-anjou" data-label="Festival d'Anjou"></td>
           <td><b>Festival d'Anjou</b></td>
-          <td>Grand festival de théâtre l'été, porté par le Département.</td>
+          <td>Grand festival de théâtre l'été, porté par le Département.<div class="apport">💡 <b>Pour eux&nbsp;:</b> un gros événement = relations presse et partenaires — ton profil événementiel + développement s'y glisse bien.</div></td>
           <td class="act">Suis-le, et passe par le Département (voir plus bas).</td></tr>
       </tbody>
     </table></div>
@@ -273,7 +300,7 @@
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-cadrenoir" data-label="Cadre Noir de Saumur / IFCE"></td>
           <td><b>Cadre Noir de Saumur</b><br><small>IFCE</small></td>
-          <td>Institution équestre connue partout, avec des galas et beaucoup d'événements.</td>
+          <td>Institution équestre connue partout, avec des galas et beaucoup d'événements.<div class="apport">💡 <b>Pour eux&nbsp;:</b> une marque forte à faire rayonner (galas, mécénat, public international) — com événementielle + développement + langues, c'est toi.</div></td>
           <td class="act">Assiste à un <b>gala</b> (les Musicales, 16-18&nbsp;oct.). Contacte l'IFCE via <b>ifce.fr/cadre-noir</b>.</td></tr>
       </tbody>
     </table></div>
@@ -284,15 +311,15 @@
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-festivini" data-label="Festivini"></td>
           <td><b>Festivini</b></td>
-          <td>Le festival de la culture du vin, de juin à septembre.</td>
+          <td>Le festival de la culture du vin, de juin à septembre.<div class="apport">💡 <b>Pour eux&nbsp;:</b> vin + culture + organisation, tes compétences réunies — et un festival cherche toujours de l'aide en com et partenariats.</div></td>
           <td class="act">Regarde <b>festivini.com</b>, puis propose ton aide pour l'édition d'été (communication, partenariats, événements).</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-bouvet" data-label="Bouvet-Ladubay (centre d'art)"></td>
           <td><b>Bouvet-Ladubay</b><br><small>centre d'art dans les caves</small></td>
-          <td>Un centre d'art contemporain installé dans les caves (art&nbsp;+&nbsp;vin).</td>
+          <td>Un centre d'art contemporain installé dans les caves (art&nbsp;+&nbsp;vin).<div class="apport">💡 <b>Pour eux&nbsp;:</b> ils font dialoguer art et vin — tu sais mettre ça en valeur et aller chercher des partenariats culturels.</div></td>
           <td class="act">Visite-le, puis contacte la maison (par son site ou LinkedIn).</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-maisonsvin" data-label="Maisons de vin (Ackerman, Langlois…)"></td>
           <td><b>Maisons de vin</b><br><small>Ackerman, Langlois, Louis de Grenelle…</small></td>
-          <td>Beaucoup organisent des expos et des événements culturels.</td>
+          <td>Beaucoup organisent des expos et des événements culturels.<div class="apport">💡 <b>Pour eux&nbsp;:</b> leur œnotourisme a besoin de mise en récit et de com — un profil culture + com est rare chez eux.</div></td>
           <td class="act">Repère celles qui font de la culture, et écris à leur service communication / œnotourisme.</td></tr>
       </tbody>
     </table></div>
@@ -303,19 +330,19 @@
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-agglo" data-label="Agglo Saumur Val de Loire (culture)"></td>
           <td><b>Agglo Saumur Val de Loire</b><br><small>affaires culturelles</small></td>
-          <td>La collectivité qui porte le plus la culture (spectacle vivant, médiathèques, saison).</td>
+          <td>La collectivité qui porte le plus la culture (spectacle vivant, médiathèques, saison).<div class="apport">💡 <b>Pour eux&nbsp;:</b> les collectivités adorent les profils qui savent com ET marchés publics / montage de projets — ta combinaison est rare et rassurante pour elles.</div></td>
           <td class="act">Va sur <b>saumurvaldeloire.fr</b> (rubriques Culture et Emplois). Écris à la Direction des affaires culturelles. <span class="b b-warn">nom à confirmer</span> direction&nbsp;: Gaël Legendre.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-ville" data-label="Ville de Saumur (Ville d'art et d'histoire)"></td>
           <td><b>Ville de Saumur</b><br><small>Ville d'art et d'histoire</small></td>
-          <td>Le label patrimoine de la ville + le château-musée. Une candidature «&nbsp;Pays d'art et d'histoire&nbsp;» est en cours.</td>
+          <td>Le label patrimoine de la ville + le château-musée. Une candidature «&nbsp;Pays d'art et d'histoire&nbsp;» est en cours.<div class="apport">💡 <b>Pour eux&nbsp;:</b> le patrimoine et la médiation, c'est ton ADN (École du Louvre) — une Ville d'art et d'histoire cherche exactement ça.</div></td>
           <td class="act">Écris à <b>villearthistoire@ville-saumur.fr</b>. Bonne question à poser&nbsp;: «&nbsp;où en est la candidature Pays d'art et d'histoire&nbsp;?&nbsp;» (ça peut créer des postes).</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-departement" data-label="Département de Maine-et-Loire (culture)"></td>
           <td><b>Département de Maine-et-Loire</b></td>
-          <td>Culture, patrimoine, archives + le Festival d'Anjou.</td>
+          <td>Culture, patrimoine, archives + le Festival d'Anjou.<div class="apport">💡 <b>Pour eux&nbsp;:</b> plusieurs directions (culture, patrimoine, com) où ton profil polyvalent a sa place.</div></td>
           <td class="act">Va sur <b>recrutement.maine-et-loire.fr</b>. Écris à <b>contact.culture@maine-et-loire.fr</b>.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-region" data-label="Région Pays de la Loire / DRAC"></td>
           <td><b>Région</b> &amp; <b>DRAC</b></td>
-          <td>La Région (dont Fontevraud) et l'État financent et labellisent la culture.</td>
+          <td>La Région (dont Fontevraud) et l'État financent et labellisent la culture.<div class="apport">💡 <b>Pour toi&nbsp;:</b> surtout un réseau et des financements à connaître pour tes futurs projets.</div></td>
           <td class="act">Surtout utile à connaître pour les financements. Garde un œil sur <b>paysdelaloire.fr</b>.</td></tr>
       </tbody>
     </table></div>
@@ -326,15 +353,15 @@
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-tourisme" data-label="Saumur Val de Loire Tourisme (office)"></td>
           <td><b>Office de tourisme</b><br><small>Saumur Val de Loire Tourisme</small></td>
-          <td>Ils connaissent tout le monde dans le coin.</td>
+          <td>Ils connaissent tout le monde dans le coin.<div class="apport">💡 <b>Pour eux&nbsp;:</b> ton regard culture + com les intéresse, et ils peuvent te présenter à tout le monde.</div></td>
           <td class="act"><b>Commence par eux.</b> Demande un rendez-vous (<b>ot-saumur.fr</b>)&nbsp;: c'est le plus simple pour te faire présenter aux autres.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-fondation" data-label="Fondation du patrimoine / associations"></td>
           <td><b>Fondation du patrimoine</b><br><small>&amp; associations</small></td>
-          <td>Un peu de bénévolat = un réseau tout de suite, et une ligne fraîche sur ton CV.</td>
+          <td>Un peu de bénévolat = un réseau tout de suite, et une ligne fraîche sur ton CV.<div class="apport">💡 <b>Pour eux&nbsp;:</b> t'impliquer montre ta valeur sur le terrain, sans pression et sans enjeu.</div></td>
           <td class="act">Regarde <b>fondation-patrimoine.org</b> et les associations du coin.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-nvnc" data-label="NVNC (ton réseau)"></td>
           <td><b>NVNC</b><br><small>ton réseau de communicants</small></td>
-          <td>Tu en es déjà membre&nbsp;: mêmes codes, entrée facile.</td>
+          <td>Tu en es déjà membre&nbsp;: mêmes codes, entrée facile.<div class="apport">💡 <b>Pour toi&nbsp;:</b> ils te connaissent déjà — le plus simple pour être recommandée.</div></td>
           <td class="act">Écris à <b>nvnc.nivuniconnu@gmail.com</b> et demande qui contacter côté Saumur.</td></tr>
       </tbody>
     </table></div>
@@ -621,6 +648,45 @@ Louise [Nom]</div>
 
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+  // --- Carte des acteurs (Leaflet + OpenStreetMap) ---
+  (function(){
+    var el=document.getElementById('map'); if(!el) return;
+    if(!window.L){ el.innerHTML='<div style="padding:20px;color:#565b63">La carte s\'affiche en ligne (elle a besoin d\'une connexion). Tous les lieux sont aussi listés dans les tableaux ci-dessous.</div>'; return; }
+    try{
+      var pts=[
+        {n:"Abbaye de Fontevraud",lat:47.1805,lng:0.0525,c:"#6e2433",u:"https://www.fontevraud.fr/"},
+        {n:"Château de Montsoreau – art contemporain",lat:47.2156,lng:0.0623,c:"#6e2433",u:"https://www.chateau-montsoreau.com/"},
+        {n:"Château-Musée de Saumur",lat:47.2570,lng:-0.0721,c:"#6e2433",u:"https://www.chateau-saumur.fr/"},
+        {n:"Pierre et Lumière (troglodytes)",lat:47.2849,lng:-0.1268,c:"#6e2433",u:"https://www.pierre-et-lumiere.com/"},
+        {n:"Troglodytes de Doué (Les Perrières)",lat:47.1900,lng:-0.2608,c:"#6e2433",u:"https://www.ot-saumur.fr/les-troglodytes/troglodytes-a-visiter/"},
+        {n:"Turquant – village troglodytique",lat:47.2226,lng:0.0284,c:"#6e2433"},
+        {n:"Château de Brézé",lat:47.1637,lng:-0.0668,c:"#6e2433"},
+        {n:"Château de Montreuil-Bellay",lat:47.1331,lng:-0.1556,c:"#6e2433"},
+        {n:"Le Dôme – scène de l'agglo",lat:47.2588,lng:-0.0760,c:"#5b4a6e",u:"https://theatreledome.saumurvaldeloire.fr/"},
+        {n:"Musicales de Montsoreau",lat:47.2150,lng:0.0625,c:"#5b4a6e"},
+        {n:"Festival d'Anjou (Arènes de Doué)",lat:47.1922,lng:-0.2759,c:"#5b4a6e"},
+        {n:"Cadre Noir de Saumur (IFCE)",lat:47.2644,lng:-0.1344,c:"#2f333b",u:"https://www.ifce.fr/cadre-noir/"},
+        {n:"Festivini (Saumur)",lat:47.2560,lng:-0.0810,c:"#3d6a4f",u:"https://festivini.com/"},
+        {n:"Bouvet-Ladubay",lat:47.2705,lng:-0.1080,c:"#3d6a4f",u:"https://www.bouvet-ladubay.fr/"},
+        {n:"Ackerman",lat:47.2719,lng:-0.1064,c:"#3d6a4f",u:"https://www.ackerman.fr/"},
+        {n:"Agglo Saumur Val de Loire",lat:47.2600,lng:-0.0790,c:"#33566e",u:"https://www.saumurvaldeloire.fr/politiques-publiques/culture"},
+        {n:"Ville de Saumur (Hôtel de Ville)",lat:47.2605,lng:-0.0759,c:"#33566e",u:"https://www.ville-saumur.fr/saumur-ville-d-art-d-histoire"},
+        {n:"Office de tourisme",lat:47.2582,lng:-0.0742,c:"#a9854b",u:"https://www.ot-saumur.fr/"}
+      ];
+      var map=L.map('map',{scrollWheelZoom:false});
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
+      var b=[];
+      pts.forEach(function(p){
+        var m=L.circleMarker([p.lat,p.lng],{radius:8,color:'#ffffff',weight:2,fillColor:p.c,fillOpacity:1});
+        m.bindPopup('<b>'+p.n+'</b>'+(p.u?'<br><a href="'+p.u+'" target="_blank" rel="noopener">Voir le site ↗</a>':''));
+        m.addTo(map); b.push([p.lat,p.lng]);
+      });
+      map.fitBounds(b,{padding:[30,30]});
+    }catch(e){ el.innerHTML='<div style="padding:20px;color:#565b63">Carte momentanément indisponible — les lieux sont listés dans les tableaux ci-dessous.</div>'; }
+  })();
+</script>
 <script>
   // Copie des modèles de mail
   document.querySelectorAll('.copy-btn').forEach(function(b){
