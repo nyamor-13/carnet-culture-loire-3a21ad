@@ -54,6 +54,7 @@
   .grid{display:grid; gap:16px; margin:18px 0}
   .grid.c2{grid-template-columns:1fr 1fr}
   .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px}
+  .card h4{margin:0 0 6px}
 
   .tablewrap{overflow-x:auto; margin:14px 0}
   table{border-collapse:collapse; width:100%; font-size:.9rem; background:var(--card); border:1px solid var(--line-2)}
@@ -191,7 +192,7 @@
 <body>
 
 <div class="savebar no-print">
-  <span>✅ Tout ce que tu écris et coches est gardé sur cet appareil, automatiquement.</span>
+  <span>✅ Tout ce que tu écris et coches reste sur cet appareil, tout seul.</span>
   <span><span class="st" id="saveState">Enregistré</span> &nbsp; <button class="btn ghost" onclick="window.print()">Imprimer</button></span>
 </div>
 
@@ -200,31 +201,64 @@
   <header class="cover">
     <p class="kicker">Ton espace de travail</p>
     <h1>Le secteur culturel autour de Saumur</h1>
-    <p class="sub">Explorer les acteurs, y voir plus clair, et décider qui rencontrer — à ton rythme.</p>
+    <p class="sub">Explorer les acteurs, y voir plus clair, et décider qui aller voir. À ton rythme.</p>
     <div class="meta">
       <span><b>Pour toi,</b> Louise</span>
       <span><b>Zone&nbsp;:</b> Saumur &amp; Val de Loire</span>
-      <span><b>Mis à jour&nbsp;:</b> septembre&nbsp;2026</span>
+      <span><b>Mis à jour&nbsp;:</b> octobre&nbsp;2026</span>
     </div>
   </header>
 
   <div class="howto">
     <h2>Comment ça marche</h2>
-    <p>Cet espace est à toi. Il suit trois étapes, dans l'ordre&nbsp;:</p>
+    <p>Cet espace est à toi. Tu as déjà fait un premier tour et tu m'as renvoyé tes réponses&nbsp;: merci&nbsp;! J'ai tout relu et j'ai ajouté juste en dessous une partie <b>«&nbsp;Pour toi&nbsp;»</b> qui reprend ce que tu m'as dit. Le reste n'a pas changé&nbsp;:</p>
     <ol>
-      <li><b>Explorer</b> — qui fait de la culture dans le coin, et une action simple pour entrer en contact avec chacun.</li>
-      <li><b>Y voir plus clair</b> — quelques questions pour poser ce que tu cherches vraiment.</li>
-      <li><b>Passer à l'action</b> — de petites choses à faire, quand tu te sens prête.</li>
+      <li><b>Explorer</b>&nbsp;— qui fait de la culture dans le coin, et quoi faire pour entrer en contact.</li>
+      <li><b>Y voir plus clair</b>&nbsp;— tes réponses au petit questionnaire (tu peux les compléter quand tu veux).</li>
+      <li><b>Passer à l'action</b>&nbsp;— de petites choses à faire, à ton rythme.</li>
     </ol>
-    <p class="rassure">Pas besoin de tout faire d'un coup, ni dans l'ordre. Tu remplis quand tu veux, un morceau à la fois. Quand tu le souhaites, tu m'envoies où tu en es (bouton tout en bas) et on en parle ensemble.</p>
+    <p class="rassure">Rien d'obligatoire, rien dans l'ordre. Tu avances quand tu veux, un bout à la fois. Et quand tu me renvoies où tu en es, je remets le document à jour derrière.</p>
   </div>
+
+  <!-- ====== POUR TOI — SYNTHÈSE ====== -->
+  <section class="sec" id="toi">
+    <h2><span class="num">POUR TOI</span>Ce que tu m'as dit, et ce que j'en retiens</h2>
+    <p class="intro-sec">J'ai relu tes réponses. Voilà ce qui ressort, et ça donne une direction beaucoup plus claire qu'un simple «&nbsp;je cherche dans la culture&nbsp;».</p>
+
+    <div class="grid c2">
+      <div class="card">
+        <h4>Ce vers quoi tu veux aller</h4>
+        <p>Faire des recherches sur un sujet, écrire, transmettre, raconter. Le patrimoine, les musées, l'art contemporain. Et surtout&nbsp;: en équipe, au contact des gens et du public.</p>
+      </div>
+      <div class="card">
+        <h4>Ce que tu veux laisser derrière</h4>
+        <p>L'administratif à la chaîne, façon dossiers d'appels d'offres en archi. Et le fait de bosser seule devant un écran, coupée d'une équipe.</p>
+      </div>
+    </div>
+
+    <p>Concrètement, ça veut dire qu'on ne vise pas un poste de «&nbsp;chargée de com&nbsp;» classique. On vise plutôt la <b>médiation, la valorisation du patrimoine et les projets qui rapprochent les lieux et le public</b>. Ton passé en communication reste un atout (tu sais mener un projet, parler à des partenaires, écrire), mais il passe au second plan&nbsp;: c'est un plus, pas le cœur du poste.</p>
+
+    <div class="callout tip"><span class="lbl">Les intitulés qui te ressemblent</span> Chargée de médiation ou des publics · chargée de valorisation du patrimoine · chargée de projets / d'action culturelle · guide-conférencière ou animatrice du patrimoine · assistante de conservation, recherche &amp; documentation. À l'inverse, tu peux zapper les annonces «&nbsp;chargée de communication&nbsp;» pures, sauf si le patrimoine est vraiment au centre.</div>
+
+    <h3>Tes deux idées fortes (et où elles collent)</h3>
+    <p><b>Croiser patrimoine et création contemporaine.</b> C'est une vraie tendance ici, pas une lubie. Fontevraud fait cohabiter une abbaye millénaire et un musée d'art moderne, avec même une résidence d'artiste chaque année (la résidence Bullukian). Montsoreau, c'est de l'art contemporain dans un château. Et Bouvet-Ladubay, un centre d'art dans des caves. Tu as de quoi en parler, et des lieux à qui en parler.</p>
+    <p><b>Public local plutôt que touristes de passage.</b> Bonne intuition&nbsp;: le Saumurois fait plus d'un million de visiteurs par an, mais faire revenir les habitants, c'est un autre métier. Le château-musée de Saumur a monté une médiation pour le jeune public et sa fréquentation est remontée. Le service Ville d'art et d'histoire, c'est exactement ça au quotidien. En rendez-vous, pose la question franchement&nbsp;: «&nbsp;comment vous touchez les Saumurois, pas juste les touristes&nbsp;?&nbsp;» Ça montre que tu comprends leur vrai sujet.</p>
+
+    <h3>Par où on commence — tes trois priorités</h3>
+    <ol class="tight">
+      <li style="margin:.5em 0"><b>Fontevraud.</b> Vise le <b>Service des Publics</b> (une équipe de 7 personnes qui fait le lien entre l'histoire du lieu, l'art moderne, les artistes et le public&nbsp;: médiation, transmission&nbsp;— ce que tu aimes). Leur portail de recrutement, c'est <b>abbaye-royale-de-fontevraud.taleez.com</b>&nbsp;; il y a des postes et des stages en médiation qui passent régulièrement. Une candidature spontanée bien ciblée y est bien vue.</li>
+      <li style="margin:.5em 0"><b>La culture à l'agglo… et à la Ville.</b> Petite nuance utile&nbsp;: la Direction des affaires culturelles de l'agglo s'occupe surtout du spectacle vivant et des médiathèques. Pour ton envie patrimoine, la <b>Ville de Saumur</b> (service Ville d'art et d'histoire) est plus dans ta cible. Vise les deux, mais commence par la Ville côté patrimoine. Bonus&nbsp;: l'agglo travaille aussi la mise en réseau des lieux, ton autre sujet.</li>
+      <li style="margin:.5em 0"><b>Le bénévolat.</b> Très bonne idée pour entrer dans le milieu tout de suite, sur un sujet qui te plaît, sans pression. Le plus simple&nbsp;: <b>JeVeuxAider.gouv.fr</b> (cherche «&nbsp;patrimoine Saumur&nbsp;» ou «&nbsp;Fondation du patrimoine&nbsp;»), ou l'annuaire des associations sur <b>ville-saumur.fr</b> (il y a près de 70 associations patrimoine dans le coin).</li>
+    </ol>
+    <div class="callout"><span class="lbl">Un réseau à connaître</span> Le <b>Pôle Patrimoine Pays de la Loire</b> réunit les pros du patrimoine de la région&nbsp;: offres d'emploi, rencontres entre professionnels, annuaire, newsletter. C'est taillé pour ton envie de «&nbsp;mettre en réseau&nbsp;», et une façon simple de rencontrer des gens du métier. <b>polepatrimoine-paysdelaloire.fr</b></div>
+  </section>
 
   <!-- ====== 1. CARTE DES ACTEURS ====== -->
   <section class="sec" id="carte">
     <h2><span class="num">ÉTAPE 1</span>La carte des acteurs</h2>
-    <p class="intro-sec">Les acteurs de la culture autour de Saumur, rangés en 6 familles. Pour chacun&nbsp;: en deux mots ce qu'il fait, et <b>une action concrète</b> pour entrer en contact. Coche «&nbsp;ça m'intéresse&nbsp;» au fil de ta lecture, sans réfléchir&nbsp;: ça servira pour la suite.</p>
+    <p class="intro-sec">Les acteurs de la culture autour de Saumur, en 6 familles. Pour chacun&nbsp;: ce qu'il fait en deux mots, et une action concrète pour entrer en contact. Coche «&nbsp;ça m'intéresse&nbsp;» au fil de ta lecture, ça sert pour la suite.</p>
 
-    <div class="callout"><span class="lbl">Avant de te lancer</span> Demander un échange ne dérange pas, au contraire&nbsp;: les gens de la culture adorent parler de leur métier et de leur territoire. Même si un contact n'a rien à te proposer sur le moment, l'échange lui apporte aussi quelque chose — un regard neuf, une idée, quelqu'un de motivé à connaître, un futur relais. Tu ne demandes pas une faveur&nbsp;: tu proposes une rencontre utile aux deux.</div>
+    <div class="callout"><span class="lbl">Avant de te lancer</span> Demander à échanger, ça ne dérange pas. Les gens de la culture aiment parler de leur métier et de leur coin. Et même quand quelqu'un n'a rien à te proposer, il en retire souvent quelque chose&nbsp;: une idée, un regard neuf, une personne motivée à garder en tête. Tu ne quémandes pas, tu proposes une rencontre qui sert aux deux.</div>
 
     <div class="famgrid">
       <div class="fam c1"><span class="ic">🏛️</span><h4>Patrimoine &amp; musées</h4><ul><li>Fontevraud</li><li>Château de Montsoreau</li><li>Château-Musée de Saumur</li><li>Troglodytes</li></ul></div>
@@ -232,13 +266,13 @@
       <div class="fam c3"><span class="ic">🐎</span><h4>Cheval &amp; patrimoine vivant</h4><ul><li>Cadre Noir de Saumur</li></ul></div>
       <div class="fam c4"><span class="ic">🍇</span><h4>Vin &amp; culture</h4><ul><li>Festivini</li><li>Bouvet-Ladubay (art&nbsp;+&nbsp;vin)</li><li>Maisons de vin</li></ul></div>
       <div class="fam c5"><span class="ic">🏢</span><h4>Collectivités <small>(qui recrutent)</small></h4><ul><li>Agglo &amp; Ville de Saumur</li><li>Département · Région</li></ul></div>
-      <div class="fam c6"><span class="ic">🤝</span><h4>Réseaux <small>(portes faciles)</small></h4><ul><li>Office de tourisme</li><li>NVNC (ton réseau)</li></ul></div>
+      <div class="fam c6"><span class="ic">🤝</span><h4>Réseaux <small>(portes faciles)</small></h4><ul><li>Office de tourisme</li><li>Pôle Patrimoine · NVNC</li></ul></div>
     </div>
 
     <h3>📍 Où ils se trouvent sur le territoire</h3>
-    <p class="intro-sec">Repère les lieux et les bureaux des acteurs. Clique sur un point pour voir le nom et le lien. Les points proches de Saumur se séparent quand tu zoomes.</p>
+    <p class="intro-sec">Repère les lieux et les bureaux des acteurs. Clique sur un point pour le nom et le lien. Les points proches de Saumur se séparent quand tu zoomes.</p>
     <div id="map"></div>
-    <div class="map-print">🗺️ Carte interactive des acteurs (visible en ligne) — Saumur au centre, Fontevraud et Montsoreau à l'est, Doué et Dénezé au sud-ouest, Saint-Hilaire-Saint-Florent au nord-ouest.</div>
+    <div class="map-print">🗺️ Carte interactive des acteurs (visible en ligne)&nbsp;: Saumur au centre, Fontevraud et Montsoreau à l'est, Doué et Dénezé au sud-ouest, Saint-Hilaire-Saint-Florent au nord-ouest.</div>
     <div class="maplegend">
       <span><i style="background:#6e2433"></i> Patrimoine &amp; musées</span>
       <span><i style="background:#5b4a6e"></i> Spectacle &amp; musique</span>
@@ -249,30 +283,30 @@
     </div>
     <p><small>Le Département (Angers) et la Région / DRAC (Nantes) sont plus loin, hors carte.</small></p>
 
-    <h3>🏛️ Patrimoine &amp; musées</h3>
+    <h3>🏛️ Patrimoine &amp; musées <small>— ta famille de cœur</small></h3>
     <div class="tablewrap"><table>
       <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-fontevraud" data-label="Abbaye de Fontevraud + Musée d'Art Moderne"></td>
           <td><b>Abbaye de Fontevraud</b><br><small>+ Musée d'Art Moderne</small></td>
-          <td>Très grand site, beaucoup de public, une programmation toute l'année.<div class="apport">💡 <b>Pour eux&nbsp;:</b> renouveler les publics et trouver des mécènes, c'est exactement ton croisement histoire de l'art + com + développement.</div></td>
-          <td class="act">Va sur <b>fontevraud.fr</b> (onglet Recrutement). Écris à <b>recrutement@fontevraud.fr</b>, ou demande un rendez-vous au directeur <b>Antoine Godbert</b> sur LinkedIn. Bientôt&nbsp;: passe voir l'expo photo (jusqu'au 4&nbsp;oct.).</td></tr>
+          <td>Une abbaye millénaire et un musée d'art moderne au même endroit. 150 personnes y travaillent, dont un Service des Publics de 7 personnes.<div class="apport">💡 <b>Pour toi&nbsp;:</b> faire dialoguer l'histoire du lieu et l'art, et amener de nouveaux visiteurs. C'est de la médiation et du récit, exactement ce que tu aimes — et ton croisement patrimoine × création se vit ici pour de vrai.</div></td>
+          <td class="act">Va sur <b>abbaye-royale-de-fontevraud.taleez.com</b> (leur portail recrutement)&nbsp;: postes et stages en médiation reviennent souvent. Écris au <b>Service des Publics</b> via <b>recrutement@fontevraud.fr</b> en disant ce qui te motive. Une spontanée bien ciblée passe très bien ici.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-montsoreau" data-label="Château de Montsoreau (art contemporain)"></td>
           <td><b>Château de Montsoreau</b><br><small>art contemporain</small></td>
-          <td>Musée d'art contemporain dans un château. Il fête ses 10&nbsp;ans en 2026.<div class="apport">💡 <b>Pour eux&nbsp;:</b> petite équipe, rayonnement international — ils ont besoin de raconter, de faire venir la presse et de monter des partenariats (ton anglais et ton italien aident).</div></td>
-          <td class="act">Regarde <b>chateau-montsoreau.com</b>. L'anniversaire est le bon moment pour proposer un coup de main&nbsp;: écris via le site, ou contacte le fondateur <b>Philippe Méaille</b> sur LinkedIn.</td></tr>
+          <td>De l'art contemporain dans un château. Petite équipe, il fête ses 10&nbsp;ans en 2026.<div class="apport">💡 <b>Pour toi&nbsp;:</b> rendre l'art contemporain accessible et le raconter. Ton œil d'historienne de l'art parle à ce genre de lieu (et ton anglais / italien aide).</div></td>
+          <td class="act">Regarde <b>chateau-montsoreau.com</b>. L'anniversaire, c'est le bon moment pour proposer un coup de main&nbsp;: écris via le site, ou contacte le fondateur <b>Philippe Méaille</b> sur LinkedIn.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-chateausaumur" data-label="Château-Musée de Saumur (Ville)"></td>
           <td><b>Château-Musée de Saumur</b><br><small>Ville de Saumur</small></td>
-          <td>Le musée de la Ville, rouvert début 2026, deux expositions en cours.<div class="apport">💡 <b>Pour eux&nbsp;:</b> un musée en relance veut faire revenir les visiteurs et nouer du mécénat de restauration — ton terrain.</div></td>
-          <td class="act">Va le <b>visiter</b> (c'est un bon prétexte), puis écris au service culture de la Ville&nbsp;: <b>communication@ville-saumur.fr</b>.</td></tr>
+          <td>Le musée de la Ville, rouvert début 2026. Il a monté une médiation jeune public qui a fait remonter la fréquentation.<div class="apport">💡 <b>Pour toi&nbsp;:</b> faire revenir les Saumurois dans leur musée, pas juste les touristes. C'est ta question du public local, en vrai.</div></td>
+          <td class="act">Va le <b>visiter</b> (bon prétexte), puis écris au service culture de la Ville&nbsp;: <b>communication@ville-saumur.fr</b>.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-troglo" data-label="Sites troglodytiques"></td>
           <td><b>Sites troglodytiques</b><br><small>Pierre et Lumière, Dénezé, Doué, Turquant…</small></td>
-          <td>Une quinzaine de lieux, souvent de petites équipes.<div class="apport">💡 <b>Pour eux&nbsp;:</b> de petites structures qui manquent de temps pour la com — quelqu'un de polyvalent comme toi les rend vite plus visibles.</div></td>
-          <td class="act">Choisis-en 1 ou 2 à <b>visiter</b> (liste sur <b>ot-saumur.fr</b>). Sur place, demande simplement qui s'occupe de l'accueil et de la communication.</td></tr>
+          <td>Une quinzaine de lieux hors du commun, souvent de petites équipes.<div class="apport">💡 <b>Pour toi&nbsp;:</b> raconter ces lieux à plus de monde. Une bonne place pour guider, écrire, transmettre — et un patrimoine qu'on ne trouve qu'ici.</div></td>
+          <td class="act">Choisis-en 1 ou 2 à <b>visiter</b> (liste sur <b>ot-saumur.fr</b>). Sur place, demande qui s'occupe de l'accueil et de la médiation.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-chateaux" data-label="Châteaux de Brézé & Montreuil-Bellay"></td>
           <td><b>Brézé &amp; Montreuil-Bellay</b><br><small>châteaux privés</small></td>
-          <td>Beaux châteaux ouverts à la visite et à l'événementiel.<div class="apport">💡 <b>Pour eux&nbsp;:</b> ils vivent de leur fréquentation et de leurs événements — tu sais valoriser un lieu et attirer du public.</div></td>
-          <td class="act">Regarde leurs sites, puis repère sur LinkedIn la personne en charge de la communication.</td></tr>
+          <td>Deux beaux châteaux ouverts à la visite et aux événements.<div class="apport">💡 <b>Pour toi&nbsp;:</b> si tu veux du terrain et du contact avec les visiteurs, c'est le genre d'endroit où ça se passe.</div></td>
+          <td class="act">Regarde leurs sites, puis repère sur LinkedIn qui s'occupe de l'accueil ou de la communication.</td></tr>
       </tbody>
     </table></div>
 
@@ -282,15 +316,15 @@
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-dome" data-label="Le Dôme (scène de l'agglo)"></td>
           <td><b>Le Dôme</b><br><small>la scène de l'agglo</small></td>
-          <td>Théâtre, musique, danse + école de musique. Nouvelle saison en cours.<div class="apport">💡 <b>Pour eux&nbsp;:</b> une saison à remplir et des publics à élargir (familles, scolaires) — ton expérience des publics et de la com de projet sert directement.</div></td>
-          <td class="act">Va voir un <b>spectacle</b>. Puis écris à la Direction des affaires culturelles de l'agglo (via <b>theatreledome.saumurvaldeloire.fr</b>) pour rencontrer l'équipe relations publiques.</td></tr>
+          <td>Théâtre, musique, danse, plus l'école de musique. Nouvelle saison en cours.<div class="apport">💡 <b>Pour toi&nbsp;:</b> amener les habitants vers les spectacles. Tu as de quoi dire côté publics, même si c'est moins ton cœur patrimoine.</div></td>
+          <td class="act">Va voir un <b>spectacle</b>, puis écris à la Direction des affaires culturelles de l'agglo (via <b>theatreledome.saumurvaldeloire.fr</b>) pour rencontrer l'équipe des relations publiques.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-musicales" data-label="Musicales de Montsoreau"></td>
           <td><b>Musicales de Montsoreau</b></td>
-          <td>Festival de musique classique l'été (une association).<div class="apport">💡 <b>Pour eux&nbsp;:</b> une association a toujours besoin de bras côté com, partenariats et mécénat — pile toi.</div></td>
-          <td class="act">Écris-leur (via <b>ot-saumur.fr</b>) pour proposer ton aide en communication ou partenariats.</td></tr>
+          <td>Festival de musique classique l'été, porté par une association.<div class="apport">💡 <b>Pour toi&nbsp;:</b> une petite équipe qui a besoin d'un coup de main pour exister. Bon terrain pour t'impliquer près de chez toi.</div></td>
+          <td class="act">Écris-leur (via <b>ot-saumur.fr</b>) pour proposer ton aide, surtout si tu veux tester l'événementiel.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-anjou" data-label="Festival d'Anjou"></td>
           <td><b>Festival d'Anjou</b></td>
-          <td>Grand festival de théâtre l'été, porté par le Département.<div class="apport">💡 <b>Pour eux&nbsp;:</b> un gros événement = relations presse et partenaires — ton profil événementiel + développement s'y glisse bien.</div></td>
+          <td>Grand festival de théâtre l'été, porté par le Département.<div class="apport">💡 <b>Pour toi&nbsp;:</b> du monde à accueillir et à faire venir. À garder en tête si l'événementiel te tente ; ce n'est pas ta priorité.</div></td>
           <td class="act">Suis-le, et passe par le Département (voir plus bas).</td></tr>
       </tbody>
     </table></div>
@@ -301,8 +335,8 @@
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-cadrenoir" data-label="Cadre Noir de Saumur / IFCE"></td>
           <td><b>Cadre Noir de Saumur</b><br><small>IFCE</small></td>
-          <td>Institution équestre connue partout, avec des galas et beaucoup d'événements.<div class="apport">💡 <b>Pour eux&nbsp;:</b> une marque forte à faire rayonner (galas, mécénat, public international) — com événementielle + développement + langues, c'est toi.</div></td>
-          <td class="act">Assiste à un <b>gala</b> (les Musicales, 16-18&nbsp;oct.). Contacte l'IFCE via <b>ifce.fr/cadre-noir</b>.</td></tr>
+          <td>Une institution équestre connue partout, avec des galas et beaucoup d'événements.<div class="apport">💡 <b>Pour toi&nbsp;:</b> raconter une tradition vivante au public. À regarder si l'univers te plaît ; on est loin du patrimoine bâti que tu vises.</div></td>
+          <td class="act">Va voir un <b>gala</b> (les Musicales du Cadre Noir, mi-octobre), puis contacte l'IFCE via <b>ifce.fr/cadre-noir</b>.</td></tr>
       </tbody>
     </table></div>
 
@@ -312,16 +346,16 @@
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-festivini" data-label="Festivini"></td>
           <td><b>Festivini</b></td>
-          <td>Le festival de la culture du vin, de juin à septembre.<div class="apport">💡 <b>Pour eux&nbsp;:</b> vin + culture + organisation, tes compétences réunies — et un festival cherche toujours de l'aide en com et partenariats.</div></td>
-          <td class="act">Regarde <b>festivini.com</b>, puis propose ton aide pour l'édition d'été (communication, partenariats, événements).</td></tr>
+          <td>Le festival de la culture du vin, de juin à septembre.<div class="apport">💡 <b>Pour toi&nbsp;:</b> faire se rencontrer vin, art et public. Sympa pour tester l'événementiel culturel près de chez toi.</div></td>
+          <td class="act">Regarde <b>festivini.com</b>, puis propose ton aide pour l'édition d'été.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-bouvet" data-label="Bouvet-Ladubay (centre d'art)"></td>
           <td><b>Bouvet-Ladubay</b><br><small>centre d'art dans les caves</small></td>
-          <td>Un centre d'art contemporain installé dans les caves (art&nbsp;+&nbsp;vin).<div class="apport">💡 <b>Pour eux&nbsp;:</b> ils font dialoguer art et vin — tu sais mettre ça en valeur et aller chercher des partenariats culturels.</div></td>
+          <td>Un centre d'art contemporain installé dans les caves.<div class="apport">💡 <b>Pour toi&nbsp;:</b> encore ton croisement art contemporain × patrimoine du lieu. Tu sais mettre ça en valeur et le raconter.</div></td>
           <td class="act">Visite-le, puis contacte la maison (par son site ou LinkedIn).</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-maisonsvin" data-label="Maisons de vin (Ackerman, Langlois…)"></td>
           <td><b>Maisons de vin</b><br><small>Ackerman, Langlois, Louis de Grenelle…</small></td>
-          <td>Beaucoup organisent des expos et des événements culturels.<div class="apport">💡 <b>Pour eux&nbsp;:</b> leur œnotourisme a besoin de mise en récit et de com — un profil culture + com est rare chez eux.</div></td>
-          <td class="act">Repère celles qui font de la culture, et écris à leur service communication / œnotourisme.</td></tr>
+          <td>Beaucoup organisent des expos et des événements culturels.<div class="apport">💡 <b>Pour toi&nbsp;:</b> donner une vraie dimension culturelle à la visite. À voir si le mélange culture + vin t'amuse.</div></td>
+          <td class="act">Repère celles qui font de la culture, et écris à leur service œnotourisme.</td></tr>
       </tbody>
     </table></div>
 
@@ -329,58 +363,62 @@
     <div class="tablewrap"><table>
       <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
       <tbody>
-        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-agglo" data-label="Agglo Saumur Val de Loire (culture)"></td>
-          <td><b>Agglo Saumur Val de Loire</b><br><small>affaires culturelles</small></td>
-          <td>La collectivité qui porte le plus la culture (spectacle vivant, médiathèques, saison).<div class="apport">💡 <b>Pour eux&nbsp;:</b> les collectivités adorent les profils qui savent com ET marchés publics / montage de projets — ta combinaison est rare et rassurante pour elles.</div></td>
-          <td class="act">Va sur <b>saumurvaldeloire.fr</b> (rubriques Culture et Emplois). Écris à la Direction des affaires culturelles. <span class="b b-warn">nom à confirmer</span> direction&nbsp;: Gaël Legendre.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-ville" data-label="Ville de Saumur (Ville d'art et d'histoire)"></td>
           <td><b>Ville de Saumur</b><br><small>Ville d'art et d'histoire</small></td>
-          <td>Le label patrimoine de la ville + le château-musée. Une candidature «&nbsp;Pays d'art et d'histoire&nbsp;» est en cours.<div class="apport">💡 <b>Pour eux&nbsp;:</b> le patrimoine et la médiation, c'est ton ADN (École du Louvre) — une Ville d'art et d'histoire cherche exactement ça.</div></td>
-          <td class="act">Écris à <b>villearthistoire@ville-saumur.fr</b>. Bonne question à poser&nbsp;: «&nbsp;où en est la candidature Pays d'art et d'histoire&nbsp;?&nbsp;» (ça peut créer des postes).</td></tr>
+          <td>Le label patrimoine de la ville, le château-musée, et une candidature «&nbsp;Pays d'art et d'histoire&nbsp;» en cours. Le service Ville d'art et d'histoire fait de la médiation et de la pédagogie autour du patrimoine.<div class="apport">💡 <b>Pour toi&nbsp;:</b> le patrimoine et la médiation, c'est ton ADN (École du Louvre). C'est sans doute la cible publique la plus proche de ton envie.</div></td>
+          <td class="act">Écris au service Ville d'art et d'histoire&nbsp;: <b>villearthistoire@ville-saumur.fr</b>. Bonne question à poser&nbsp;: où en est la candidature «&nbsp;Pays d'art et d'histoire&nbsp;»&nbsp;? Si elle aboutit, ça crée des postes d'animateur du patrimoine, pile ton profil.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-agglo" data-label="Agglo Saumur Val de Loire (culture)"></td>
+          <td><b>Agglo Saumur Val de Loire</b><br><small>affaires culturelles</small></td>
+          <td>La collectivité qui porte le plus la culture, surtout côté spectacle vivant et médiathèques. Elle travaille aussi la mise en réseau des lieux.<div class="apport">💡 <b>Pour toi&nbsp;:</b> moins patrimoine que la Ville, mais la mise en réseau des initiatives t'intéresse — et les médiathèques font beaucoup d'action culturelle.</div></td>
+          <td class="act">Va sur <b>saumurvaldeloire.fr</b> (rubriques Culture et Emplois). La Direction des affaires culturelles a une équipe (<b>Mathieu Naulet</b> y est cité <span class="b b-warn">intitulé à vérifier</span>). Dis-leur ce qui t'intéresse côté publics et réseau des lieux.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-departement" data-label="Département de Maine-et-Loire (culture)"></td>
           <td><b>Département de Maine-et-Loire</b></td>
-          <td>Culture, patrimoine, archives + le Festival d'Anjou.<div class="apport">💡 <b>Pour eux&nbsp;:</b> plusieurs directions (culture, patrimoine, com) où ton profil polyvalent a sa place.</div></td>
-          <td class="act">Va sur <b>recrutement.maine-et-loire.fr</b>. Écris à <b>contact.culture@maine-et-loire.fr</b>.</td></tr>
+          <td>Culture, patrimoine, archives, inventaire du patrimoine, plus le Festival d'Anjou.<div class="apport">💡 <b>Pour toi&nbsp;:</b> plusieurs portes pour un profil patrimoine, dont l'inventaire et la recherche documentaire qui te parlent.</div></td>
+          <td class="act">Va sur <b>recrutement.maine-et-loire.fr</b>, et écris à <b>contact.culture@maine-et-loire.fr</b>.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-region" data-label="Région Pays de la Loire / DRAC"></td>
           <td><b>Région</b> &amp; <b>DRAC</b></td>
-          <td>La Région (dont Fontevraud) et l'État financent et labellisent la culture.<div class="apport">💡 <b>Pour toi&nbsp;:</b> surtout un réseau et des financements à connaître pour tes futurs projets.</div></td>
-          <td class="act">Surtout utile à connaître pour les financements. Garde un œil sur <b>paysdelaloire.fr</b>.</td></tr>
+          <td>La Région (dont Fontevraud) et l'État financent et labellisent la culture.<div class="apport">💡 <b>Pour toi&nbsp;:</b> surtout à connaître pour les financements et les résidences d'artistes en patrimoine (ton sujet création × patrimoine).</div></td>
+          <td class="act">Garde un œil sur <b>paysdelaloire.fr</b> et sur la DRAC Pays de la Loire pour les dispositifs de résidences.</td></tr>
       </tbody>
     </table></div>
 
-    <h3>🤝 Réseaux <small>— les portes les plus faciles pour commencer</small></h3>
+    <h3>🤝 Réseaux <small>— les portes les plus faciles</small></h3>
     <div class="tablewrap"><table>
       <thead><tr><th>Ça m'intéresse</th><th>Acteur</th><th>En deux mots</th><th>Ta prochaine action</th></tr></thead>
       <tbody>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-tourisme" data-label="Saumur Val de Loire Tourisme (office)"></td>
           <td><b>Office de tourisme</b><br><small>Saumur Val de Loire Tourisme</small></td>
-          <td>Ils connaissent tout le monde dans le coin.<div class="apport">💡 <b>Pour eux&nbsp;:</b> ton regard culture + com les intéresse, et ils peuvent te présenter à tout le monde.</div></td>
-          <td class="act"><b>Commence par eux.</b> Demande un rendez-vous (<b>ot-saumur.fr</b>)&nbsp;: c'est le plus simple pour te faire présenter aux autres.</td></tr>
-        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-fondation" data-label="Fondation du patrimoine / associations"></td>
-          <td><b>Fondation du patrimoine</b><br><small>&amp; associations</small></td>
-          <td>Un peu de bénévolat = un réseau tout de suite, et une ligne fraîche sur ton CV.<div class="apport">💡 <b>Pour eux&nbsp;:</b> t'impliquer montre ta valeur sur le terrain, sans pression et sans enjeu.</div></td>
-          <td class="act">Regarde <b>fondation-patrimoine.org</b> et les associations du coin.</td></tr>
+          <td>Ils connaissent tout le monde dans le coin.<div class="apport">💡 <b>Pour toi&nbsp;:</b> ton regard sur le patrimoine et les publics les intéresse, et ils peuvent te présenter aux autres.</div></td>
+          <td class="act"><b>Une bonne première porte.</b> Demande un rendez-vous (<b>ot-saumur.fr</b>) pour te faire présenter le paysage.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-pole" data-label="Pôle Patrimoine Pays de la Loire"></td>
+          <td><b>Pôle Patrimoine Pays de la Loire</b><br><small>réseau des pros du patrimoine</small></td>
+          <td>Le réseau régional des professionnels du patrimoine&nbsp;: offres d'emploi, rencontres, annuaire, formations, newsletter.<div class="apport">💡 <b>Pour toi&nbsp;:</b> exactement ton envie de «&nbsp;mise en réseau&nbsp;», et une façon simple de rencontrer des gens du métier près de chez toi.</div></td>
+          <td class="act">Abonne-toi à la newsletter et regarde les rendez-vous «&nbsp;ConneXionS&nbsp;» sur <b>polepatrimoine-paysdelaloire.fr</b> · <b>contact@polepatrimoine-paysdelaloire.fr</b>.</td></tr>
+        <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-fondation" data-label="Bénévolat patrimoine (Fondation du patrimoine / assos)"></td>
+          <td><b>Bénévolat patrimoine</b><br><small>Fondation du patrimoine &amp; assos</small></td>
+          <td>Près de 70 associations patrimoine autour de Saumur, plus la délégation de la Fondation du patrimoine.<div class="apport">💡 <b>Pour toi&nbsp;:</b> entrer dans le milieu tout de suite, sur un sujet que tu aimes, sans pression et sans enjeu.</div></td>
+          <td class="act">Passe par <b>JeVeuxAider.gouv.fr</b> (cherche «&nbsp;patrimoine Saumur&nbsp;») ou l'annuaire des associations sur <b>ville-saumur.fr</b>. Choisis un lieu ou un sujet qui te plaît, et vas-y.</td></tr>
         <tr><td class="tick"><input type="checkbox" data-persist class="interest" id="int-nvnc" data-label="NVNC (ton réseau)"></td>
           <td><b>NVNC</b><br><small>ton réseau de communicants</small></td>
-          <td>Tu en es déjà membre&nbsp;: mêmes codes, entrée facile.<div class="apport">💡 <b>Pour toi&nbsp;:</b> ils te connaissent déjà — le plus simple pour être recommandée.</div></td>
-          <td class="act">Écris à <b>nvnc.nivuniconnu@gmail.com</b> et demande qui contacter côté Saumur.</td></tr>
+          <td>Tu en es déjà membre.<div class="apport">💡 <b>Pour toi&nbsp;:</b> ils te connaissent déjà — la porte la plus facile pour être recommandée côté Saumur.</div></td>
+          <td class="act">Écris à <b>nvnc.nivuniconnu@gmail.com</b> et demande qui contacter dans le coin.</td></tr>
       </tbody>
     </table></div>
 
     <div class="myactors">
       <h3>➕ Tes acteurs à toi</h3>
-      <p class="hint" style="font-size:.9rem;color:var(--ink-soft);margin:.2em 0 8px">Tu connais peut-être déjà des lieux, des personnes ou des pistes. Note-les ici (un par ligne, avec ce que tu en sais ou ce que tu comptes faire). On les ajoutera à la carte.</p>
-      <textarea id="myactors" data-persist data-label="Mes acteurs à moi" style="min-height:90px" placeholder="Ex. « La galerie de X à Saumur — j'aime beaucoup, demander à la rencontrer »
+      <p class="hint" style="font-size:.9rem;color:var(--ink-soft);margin:.2em 0 8px">Tu connais peut-être déjà des lieux, des personnes ou des pistes. Note-les ici (un par ligne, avec ce que tu en sais ou ce que tu comptes faire). Je les ajouterai à la carte.</p>
+      <textarea id="myactors" data-persist data-label="Mes acteurs à moi" style="min-height:90px" placeholder="Ex. « La galerie de X à Saumur, j'aime beaucoup, demander à la rencontrer »
 « Une amie connaît quelqu'un à Fontevraud »"></textarea>
     </div>
 
-    <div class="callout tip"><span class="lbl">Petit conseil</span> Si tu ne sais pas par où commencer, prends l'<b>office de tourisme</b>&nbsp;: un seul rendez-vous t'ouvre plein de portes. Et à la fin de chaque rencontre, pose toujours la question&nbsp;: «&nbsp;<b>qui d'autre me conseillez-vous de rencontrer&nbsp;?</b>&nbsp;»</div>
+    <div class="callout tip"><span class="lbl">Petit conseil</span> Si tu ne sais pas par où commencer, prends l'<b>office de tourisme</b> ou le <b>Service des Publics de Fontevraud</b>. Et à la fin de chaque rencontre, garde le réflexe&nbsp;: «&nbsp;<b>qui d'autre je pourrais aller voir&nbsp;?</b>&nbsp;»</div>
   </section>
 
   <!-- ====== 2. QUESTIONNAIRE ====== -->
   <section class="sec" id="clarifier">
     <h2><span class="num">ÉTAPE 2</span>Y voir plus clair</h2>
-    <p class="intro-sec">Maintenant que tu as vu le paysage, prends un moment pour toi. Ces questions t'aident à mettre des mots sur ce que tu cherches. Réponds simplement&nbsp;: il n'y a pas de bonne réponse. C'est dans la continuité de ce que tu as travaillé avec ta coach.</p>
+    <p class="intro-sec">Tu as déjà répondu, et ça m'a servi pour la partie «&nbsp;Pour toi&nbsp;» tout en haut. Tes réponses restent enregistrées ici&nbsp;; reviens les compléter ou les changer quand tu veux, ça fera évoluer le document.</p>
 
     <div class="quiz">
       <div class="q">
@@ -448,7 +486,7 @@
       <div class="q">
         <span class="qn">7 · POUR RÉSUMER</span>
         <label class="ql" for="q7">Tes premières envies&nbsp;: par quoi tu veux commencer&nbsp;?</label>
-        <p class="hint">Reprends ce que tu as coché dans la carte. Note ici les <b>2 ou 3 acteurs à rencontrer</b> ou les <b>pistes à explorer</b> en premier. C'est ce qu'on regardera ensemble.</p>
+        <p class="hint">Reprends ce que tu as coché dans la carte. Note ici les 2 ou 3 acteurs à rencontrer, ou les pistes à explorer en premier. C'est ce qu'on regardera ensemble.</p>
         <textarea id="q7" data-persist style="min-height:90px" placeholder="1.
 2.
 3."></textarea>
@@ -459,31 +497,31 @@
   <!-- ====== 3. PLAN D'ACTION ====== -->
   <section class="sec" id="plan">
     <h2><span class="num">ÉTAPE 3</span>Passer à l'action</h2>
-    <p class="intro-sec">Rien d'obligatoire, et surtout pas tout en même temps. Choisis une ou deux choses, et coche-les quand c'est fait. L'idée&nbsp;: aller rencontrer les gens pour te faire connaître, tout doucement.</p>
+    <p class="intro-sec">Rien d'obligatoire, et pas tout en même temps. Choisis une ou deux choses, coche-les quand c'est fait. L'idée, c'est d'aller rencontrer les gens tout doucement.</p>
 
     <div id="planlist">
     <div class="phase">
       <h3>Pour commencer <span class="when">cette semaine</span></h3>
       <ul class="check">
-        <li><label><input type="checkbox" data-persist id="pa1"><span> Cocher dans la carte 5 acteurs qui m'attirent.</span></label></li>
-        <li><label><input type="checkbox" data-persist id="pa2"><span> Répondre au questionnaire, même en partie.</span></label></li>
-        <li><label><input type="checkbox" data-persist id="pa3"><span> Écrire à l'office de tourisme pour un premier rendez-vous.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pa1"><span> Écrire au Service des Publics de Fontevraud (ta priorité n°1).</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pa2"><span> Demander un rendez-vous à l'office de tourisme pour voir le paysage.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pa3"><span> Choisir un lieu ou une asso pour du bénévolat patrimoine (JeVeuxAider).</span></label></li>
       </ul>
     </div>
     <div class="phase">
       <h3>Ce mois-ci <span class="when">sans pression</span></h3>
       <ul class="check">
-        <li><label><input type="checkbox" data-persist id="pb1"><span> Aller voir une expo ou un spectacle (idées dans l'agenda).</span></label></li>
-        <li><label><input type="checkbox" data-persist id="pb2"><span> Écrire à 2 ou 3 acteurs de ma liste (modèles de mails plus bas).</span></label></li>
-        <li><label><input type="checkbox" data-persist id="pb3"><span> Réécrire à mon réseau NVNC.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pb1"><span> Aller voir une expo (Fontevraud, château-musée) et en tirer un mot d'accroche.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pb2"><span> Écrire au service Ville d'art et d'histoire de Saumur.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pb3"><span> M'abonner à la newsletter du Pôle Patrimoine et repérer un « ConneXionS ».</span></label></li>
       </ul>
     </div>
     <div class="phase">
       <h3>Quand je me sens prête <span class="when">à mon rythme</span></h3>
       <ul class="check">
-        <li><label><input type="checkbox" data-persist id="pc1"><span> Demander des rendez-vous pour rencontrer les gens.</span></label></li>
-        <li><label><input type="checkbox" data-persist id="pc2"><span> Après chaque rencontre, demander « qui d'autre je pourrais voir ? ».</span></label></li>
-        <li><label><input type="checkbox" data-persist id="pc3"><span> Envoyer à Romain où j'en suis, pour qu'on en parle.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pc1"><span> Enchaîner les rendez-vous, un ou deux par semaine.</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pc2"><span> À chaque fois, demander « qui d'autre je pourrais aller voir ? ».</span></label></li>
+        <li><label><input type="checkbox" data-persist id="pc3"><span> Renvoyer à Romain où j'en suis, pour qu'on en parle.</span></label></li>
       </ul>
     </div>
     </div>
@@ -492,14 +530,13 @@
   <!-- ====== 4. AGENDA ====== -->
   <section class="sec" id="agenda">
     <h2><span class="num">EN PLUS</span>L'agenda culturel</h2>
-    <p class="intro-sec">Des occasions d'y aller, de voir du monde — et un prétexte tout trouvé pour écrire ensuite («&nbsp;j'étais à… et j'ai adoré, pourrait-on échanger&nbsp;?&nbsp;»).</p>
+    <p class="intro-sec">Des occasions d'y aller, de voir du monde, et d'avoir un prétexte pour écrire ensuite («&nbsp;j'étais à… et j'ai adoré, on pourrait échanger&nbsp;?&nbsp;»).</p>
     <div class="agenda">
-      <div class="ag soon"><div class="date">Jusqu'au 4 oct. 2026</div><div class="ev">Fontevraud — expo « Chambre noire, toile blanche »</div><div class="why">Se termine bientôt&nbsp;: une visite = un sujet d'accroche immédiat.</div></div>
-      <div class="ag soon"><div class="date">15 oct. 2026</div><div class="ev">Colloque des 1000 ans de l'abbaye de Saint-Hilaire-Saint-Florent (Saumur)</div><div class="why">On y croise des acteurs culturels et des décideurs.</div></div>
-      <div class="ag soon"><div class="date">16-18 oct. 2026</div><div class="ev">Les Musicales du Cadre Noir</div><div class="why">La grande vitrine du Cadre Noir.</div></div>
+      <div class="ag soon"><div class="date">Mi-octobre 2026</div><div class="ev">Les Musicales du Cadre Noir</div><div class="why">La grande vitrine du Cadre Noir.</div></div>
       <div class="ag"><div class="date">Jusqu'au 29 nov. 2026</div><div class="ev">Château-Musée de Saumur — expos « Luxe amer » &amp; « Mondes brodés »</div><div class="why">À voir avant d'écrire au service culture de la Ville.</div></div>
-      <div class="ag"><div class="date">28 nov. 2026 → mars 2027</div><div class="ev">« Noël à Fontevraud » — parcours immersif, concerts</div><div class="why">Un gros temps fort familial.</div></div>
+      <div class="ag"><div class="date">28 nov. 2026 → mars 2027</div><div class="ev">« Noël à Fontevraud » — parcours immersif, concerts</div><div class="why">Un gros temps fort familial, bon exemple de médiation grand public.</div></div>
       <div class="ag"><div class="date">Toute l'année 2026</div><div class="ev">Château de Montsoreau — les 10 ans du musée</div><div class="why">Le bon moment pour se manifester.</div></div>
+      <div class="ag"><div class="date">Chaque année</div><div class="ev">Résidence d'artiste Bullukian à Fontevraud</div><div class="why">Un artiste invité dans l'abbaye&nbsp;: ton sujet patrimoine × création, en vrai.</div></div>
       <div class="ag"><div class="date">Été 2027</div><div class="ev">Musicales de Montsoreau · Festival d'Anjou · Festivini</div><div class="why">Les grands rendez-vous&nbsp;: on peut s'y préparer dès l'hiver.</div></div>
     </div>
   </section>
@@ -507,40 +544,40 @@
   <!-- ====== 5. MAILS ====== -->
   <section class="sec" id="mails">
     <h2><span class="num">EN PLUS</span>Des modèles de mails</h2>
-    <p class="intro-sec">Trois exemples pour t'aider à démarrer. Les <span class="var">[mots entre crochets]</span> sont à remplacer. Reste simple et sincère&nbsp;: un mail court marche mieux qu'un long.</p>
+    <p class="intro-sec">Trois exemples pour démarrer. Les <span class="var">[mots entre crochets]</span> sont à remplacer. Reste simple et sincère&nbsp;: un mail court marche mieux qu'un long.</p>
 
     <div class="mail">
       <div class="head"><span class="t">1 — Demander à rencontrer quelqu'un (sans demander de travail)</span><button class="copy-btn" data-target="cm1">Copier</button></div>
-      <p class="who"><b>À qui&nbsp;:</b> la direction ou le·la responsable d'un lieu culturel.</p>
-      <div class="body" id="cm1"><span class="obj">Objet : Nouvelle arrivante à Saumur — votre regard sur le secteur culturel</span>
+      <p class="who"><b>À qui&nbsp;:</b> la direction ou le·la responsable d'un lieu culturel (par exemple le Service des Publics de Fontevraud).</p>
+      <div class="body" id="cm1"><span class="obj">Objet : Nouvelle arrivante à Saumur, votre regard sur le patrimoine du coin</span>
 
 Madame, Monsieur [Nom],
 
-Je viens de m'installer à Saumur avec ma famille. Historienne de l'art de formation (École du Louvre) et communicante depuis plus de dix ans, je souhaite construire mon projet dans la culture, ici.
+Je viens de m'installer à Saumur. Historienne de l'art de formation (École du Louvre), j'ai envie de construire mon projet autour du patrimoine et de la médiation, ici, sur le territoire.
 
-Avant tout, je cherche à mieux comprendre le secteur du Saumurois — et [nom du lieu] est un endroit que j'apprécie beaucoup, notamment [détail précis : votre programmation / votre travail sur les publics].
+Je cherche d'abord à mieux comprendre le paysage, et [nom du lieu] est un endroit qui me touche, notamment [détail précis : votre travail avec les publics / votre programmation].
 
-Accepteriez-vous de m'accorder 20 minutes, en visio ou autour d'un café ? Je ne viens rien vendre : j'aimerais surtout profiter de votre regard. Je m'adapte à vos disponibilités.
+Est-ce que vous auriez 20 minutes à m'accorder, en visio ou autour d'un café ? Je ne viens rien vendre, j'aimerais surtout profiter de votre regard. Je m'adapte à vos dispos.
 
 Merci beaucoup,
 Louise [Nom] — [tél.] — [e-mail] — [LinkedIn]</div>
     </div>
 
     <div class="mail">
-      <div class="head"><span class="t">2 — Proposer ses services à un lieu culturel</span><button class="copy-btn" data-target="cm2">Copier</button></div>
-      <p class="who"><b>À qui&nbsp;:</b> la personne qui a le besoin (direction, communication, développement), pas seulement les RH.</p>
-      <div class="body" id="cm2"><span class="obj">Objet : Un coup de main pour votre communication et vos partenariats ?</span>
+      <div class="head"><span class="t">2 — Proposer un coup de main à un lieu de patrimoine</span><button class="copy-btn" data-target="cm2">Copier</button></div>
+      <p class="who"><b>À qui&nbsp;:</b> la personne qui a le besoin (direction, service des publics, médiation), pas seulement les RH.</p>
+      <div class="body" id="cm2"><span class="obj">Objet : Un coup de main côté médiation et publics ?</span>
 
 Madame, Monsieur [Nom],
 
-Installée à Saumur depuis la rentrée, je propose à un projet culturel du territoire deux compétences : la communication (presse, contenus) et le développement (partenariats, mécénat).
+Installée à Saumur depuis la rentrée, historienne de l'art, j'aimerais mettre au service d'un lieu de patrimoine ce que j'aime faire : chercher, écrire, raconter, et faire venir le public.
 
-Votre actualité — [ex. les 10 ans du musée / votre nouvelle saison] — donne justement envie d'agir. Concrètement, je peux :
-• faire venir et fidéliser de nouveaux publics ;
-• trouver des partenaires et du mécénat ;
-• porter la communication d'un événement ou d'une exposition.
+Votre actualité — [ex. votre nouvelle exposition / votre travail auprès des scolaires] — donne justement envie d'aider. Concrètement, je peux :
+• préparer et animer des visites ou des contenus de médiation ;
+• travailler la venue des publics de proximité, pas seulement des touristes ;
+• donner un coup de main sur la recherche et la valorisation autour d'un lieu ou d'une collection.
 
-Seriez-vous disponible pour un court échange ? Je peux vous présenter 2 ou 3 idées concrètes.
+Est-ce qu'on pourrait en parler ? Je peux venir avec 2 ou 3 idées concrètes.
 
 Bien à vous,
 Louise [Nom] — [coordonnées]</div>
@@ -553,7 +590,7 @@ Louise [Nom] — [coordonnées]</div>
 
 Bonjour [Prénom],
 
-Je me permets de revenir vers vous avec une idée : [ex. « pour toucher les familles cet hiver, une visite courte le dimanche autour de l'expo pourrait bien fonctionner »].
+Je reviens vers vous avec une petite idée : [ex. « pour faire venir les familles cet hiver, une visite courte le dimanche autour de l'expo pourrait bien marcher »].
 
 Je reste très intéressée par un échange, même bref, quand vous aurez un moment.
 
@@ -573,20 +610,22 @@ Louise [Nom]</div>
     </div>
     <p><small>Sources&nbsp;: <i>Chiffres clés 2025</i> du ministère de la Culture&nbsp;; Saumur Val de Loire Tourisme.</small></p>
 
-    <h3>Pour recevoir les offres sans les chercher</h3>
-    <div class="src"><h4>ProfilCulture</h4><p>Le site de référence des emplois de la culture. Crée une alerte&nbsp;: région Pays de la Loire. <span class="url">profilculture.com</span></p></div>
-    <div class="src"><h4>emploi-territorial.fr</h4><p>Pour les postes des collectivités (agglo, Ville, Département, médiathèques). Alerte&nbsp;: Maine-et-Loire (049) + mots-clés «&nbsp;culture, patrimoine, médiation&nbsp;». <span class="url">emploi-territorial.fr</span></p></div>
-    <div class="src"><h4>Les newsletters des lieux</h4><p>Abonne-toi aux lettres et pages LinkedIn de Fontevraud, Montsoreau, Le Dôme, du Cadre Noir, de l'office de tourisme… Les besoins y apparaissent souvent en premier.</p></div>
+    <h3>Où regarder les offres (patrimoine &amp; médiation)</h3>
+    <div class="src"><h4>ProfilCulture</h4><p>Le site de référence de la culture. Il a une rubrique dédiée «&nbsp;Patrimoine &amp; politiques culturelles&nbsp;» et une «&nbsp;Médiation&nbsp;». Crée une alerte sur les Pays de la Loire. <span class="url">profilculture.com</span></p></div>
+    <div class="src"><h4>Pôle Patrimoine Pays de la Loire</h4><p>Des offres d'emploi patrimoine de la région, plus des rencontres pro. Abonne-toi à la newsletter. <span class="url">polepatrimoine-paysdelaloire.fr</span></p></div>
+    <div class="src"><h4>Le public (collectivités)</h4><p>Pour les postes de la Ville, de l'agglo, du Département et des médiathèques&nbsp;: <span class="url">emploi-territorial.fr</span> et <span class="url">choisirleservicepublic.gouv.fr</span> (domaine Culture-Patrimoine, Maine-et-Loire), plus mots-clés «&nbsp;médiation, patrimoine, publics&nbsp;».</p></div>
+    <div class="src"><h4>Les lieux en direct</h4><p>Le recrutement de Fontevraud passe par <span class="url">abbaye-royale-de-fontevraud.taleez.com</span>. Abonne-toi aussi aux newsletters et pages LinkedIn de Fontevraud, Montsoreau, du château-musée, du Cadre Noir&nbsp;: les besoins y sortent souvent en premier.</p></div>
   </section>
 
   <!-- ====== LIENS UTILES ====== -->
   <section class="sec" id="liens">
     <h2><span class="num">EN PLUS</span>Tous les liens utiles</h2>
-    <p class="intro-sec">Pour aller regarder, t'inspirer et te renseigner quand tu veux. Chaque lien s'ouvre dans un nouvel onglet — tu ne perds pas ta page.</p>
+    <p class="intro-sec">Pour aller regarder, t'inspirer et te renseigner quand tu veux. Chaque lien s'ouvre dans un nouvel onglet, tu ne perds pas ta page.</p>
 
     <h3>🏛️ Les lieux à visiter &amp; suivre</h3>
     <ul class="links">
       <li><a href="https://www.fontevraud.fr/" target="_blank" rel="noopener">Abbaye de Fontevraud &amp; Musée d'Art Moderne <small>fontevraud.fr</small></a></li>
+      <li><a href="https://abbaye-royale-de-fontevraud.taleez.com/" target="_blank" rel="noopener">Fontevraud — recrutement (postes &amp; stages) <small>abbaye-royale-de-fontevraud.taleez.com</small></a></li>
       <li><a href="https://www.chateau-montsoreau.com/" target="_blank" rel="noopener">Château de Montsoreau – Art Contemporain <small>chateau-montsoreau.com</small></a></li>
       <li><a href="https://www.chateau-saumur.fr/" target="_blank" rel="noopener">Château-Musée de Saumur <small>chateau-saumur.fr</small></a></li>
       <li><a href="https://www.pierre-et-lumiere.com/" target="_blank" rel="noopener">Pierre et Lumière (troglodytes) <small>pierre-et-lumiere.com</small></a></li>
@@ -604,28 +643,31 @@ Louise [Nom]</div>
 
     <h3>🏢 Collectivités &amp; institutions</h3>
     <ul class="links">
-      <li><a href="https://www.saumurvaldeloire.fr/politiques-publiques/culture" target="_blank" rel="noopener">Agglo Saumur Val de Loire – Culture <small>saumurvaldeloire.fr</small></a></li>
       <li><a href="https://www.ville-saumur.fr/saumur-ville-d-art-d-histoire" target="_blank" rel="noopener">Ville de Saumur – Ville d'art et d'histoire <small>ville-saumur.fr</small></a></li>
+      <li><a href="https://www.saumurvaldeloire.fr/politiques-publiques/culture" target="_blank" rel="noopener">Agglo Saumur Val de Loire – Culture <small>saumurvaldeloire.fr</small></a></li>
       <li><a href="https://www.maine-et-loire.fr/" target="_blank" rel="noopener">Département de Maine-et-Loire <small>maine-et-loire.fr</small></a></li>
       <li><a href="https://www.paysdelaloire.fr/" target="_blank" rel="noopener">Région Pays de la Loire <small>paysdelaloire.fr</small></a></li>
       <li><a href="https://www.culture.gouv.fr/regions/drac-pays-de-la-loire" target="_blank" rel="noopener">DRAC Pays de la Loire (État) <small>culture.gouv.fr</small></a></li>
-      <li><a href="https://www.fondation-patrimoine.org/" target="_blank" rel="noopener">Fondation du patrimoine <small>fondation-patrimoine.org</small></a></li>
-      <li><a href="https://www.nivuniconnu.org/" target="_blank" rel="noopener">Réseau NVNC (ton réseau) <small>nivuniconnu.org</small></a></li>
     </ul>
 
-    <h3>📰 Se tenir au courant &amp; s'inspirer</h3>
+    <h3>🤝 Réseaux, bénévolat &amp; inspiration</h3>
     <ul class="links">
+      <li><a href="https://www.polepatrimoine-paysdelaloire.fr/" target="_blank" rel="noopener">Pôle Patrimoine Pays de la Loire <small>polepatrimoine-paysdelaloire.fr</small></a></li>
+      <li><a href="https://www.jeveuxaider.gouv.fr/" target="_blank" rel="noopener">JeVeuxAider – bénévolat (cherche « patrimoine Saumur ») <small>jeveuxaider.gouv.fr</small></a></li>
+      <li><a href="https://www.fondation-patrimoine.org/" target="_blank" rel="noopener">Fondation du patrimoine <small>fondation-patrimoine.org</small></a></li>
+      <li><a href="https://www.nivuniconnu.org/" target="_blank" rel="noopener">Réseau NVNC (ton réseau) <small>nivuniconnu.org</small></a></li>
       <li><a href="https://www.ot-saumur.fr/" target="_blank" rel="noopener">Saumur Val de Loire Tourisme <small>ot-saumur.fr</small></a></li>
-      <li><a href="https://www.anjou-tourisme.com/" target="_blank" rel="noopener">Anjou Tourisme (agenda régional) <small>anjou-tourisme.com</small></a></li>
       <li><a href="https://49.agendaculturel.fr/agenda-culturel/saumur/" target="_blank" rel="noopener">Agenda culturel de Saumur <small>49.agendaculturel.fr</small></a></li>
-      <li><a href="https://www.le-kiosque.org/" target="_blank" rel="noopener">Le Kiosque – l'actu locale de Saumur <small>le-kiosque.org</small></a></li>
+      <li><a href="https://www.le-kiosque.org/" target="_blank" rel="noopener">Le Kiosque – l'actu locale <small>le-kiosque.org</small></a></li>
     </ul>
 
     <h3>💼 Emploi &amp; veille</h3>
     <ul class="links">
-      <li><a href="https://www.profilculture.com/" target="_blank" rel="noopener">ProfilCulture – emplois de la culture <small>profilculture.com</small></a></li>
+      <li><a href="https://www.profilculture.com/annonce/Emplois-Patrimoine-Politique-Culturelle" target="_blank" rel="noopener">ProfilCulture – Patrimoine &amp; politiques culturelles <small>profilculture.com</small></a></li>
       <li><a href="https://www.emploi-territorial.fr/" target="_blank" rel="noopener">emploi-territorial.fr – postes des collectivités <small>emploi-territorial.fr</small></a></li>
-      <li><a href="https://choisirleservicepublic.gouv.fr/" target="_blank" rel="noopener">Choisir le service public <small>choisirleservicepublic.gouv.fr</small></a></li>
+      <li><a href="https://choisirleservicepublic.gouv.fr/nos-offres/filtres/domaine/3510/" target="_blank" rel="noopener">Choisir le service public – Culture &amp; patrimoine <small>choisirleservicepublic.gouv.fr</small></a></li>
+      <li><a href="https://www.emploi-collectivites.fr/emploi-mediateur-culturel/recherche" target="_blank" rel="noopener">Emploi-collectivités – médiateur culturel <small>emploi-collectivites.fr</small></a></li>
+      <li><a href="https://candidat.francetravail.fr/offres/emploi/culture-patrimoine/s14" target="_blank" rel="noopener">France Travail – Culture &amp; patrimoine <small>francetravail.fr</small></a></li>
       <li><a href="https://www.apec.fr/" target="_blank" rel="noopener">APEC – emplois cadres <small>apec.fr</small></a></li>
     </ul>
   </section>
@@ -640,12 +682,12 @@ Louise [Nom]</div>
         <button class="btn" id="downloadAll">⬇️ Télécharger (fichier .txt)</button>
       </div>
       <p><small id="exportMsg" style="color:var(--ok-ink)"></small></p>
-      <p style="margin:.2em 0 0"><small>«&nbsp;Copier&nbsp;» met tout dans ton presse-papier&nbsp;: tu n'as plus qu'à le coller dans ton message. Si tu préfères, «&nbsp;Télécharger&nbsp;» crée un petit fichier à joindre.</small></p>
+      <p style="margin:.2em 0 0"><small>«&nbsp;Copier&nbsp;» met tout dans ton presse-papier&nbsp;: tu n'as plus qu'à le coller dans ton message. Sinon, «&nbsp;Télécharger&nbsp;» crée un petit fichier à joindre.</small></p>
     </div>
-    <div class="callout tip"><span class="lbl">Un besoin, une question&nbsp;?</span> N'hésite surtout pas à me demander des <b>infos précises sur un lieu ou une personne</b> — pour mieux comprendre le secteur, ou pour <b>préparer un entretien ou une visite</b>. Je creuse et je te prépare ça.</div>
+    <div class="callout tip"><span class="lbl">Un besoin, une question&nbsp;?</span> Demande-moi des infos précises sur un lieu ou une personne, pour mieux comprendre le secteur ou pour préparer un rendez-vous ou une visite. Je creuse et je te prépare ça.</div>
   </section>
 
-  <p class="foot">Espace de travail personnel préparé pour Louise · septembre 2026 · On le fait évoluer ensemble. Informations issues de sources publiques (sites des structures et collectivités, ministère de la Culture, office de tourisme)&nbsp;; les noms et les dates peuvent changer, à revérifier au moment de contacter. Ce que tu écris reste sur ton appareil&nbsp;; rien n'est envoyé à Romain sans que tu le décides.</p>
+  <p class="foot">Espace de travail personnel préparé pour Louise · octobre 2026 · On le fait évoluer ensemble. Informations issues de sources publiques (sites des structures et des collectivités, ministère de la Culture, office de tourisme, Pôle Patrimoine Pays de la Loire)&nbsp;; les noms et les dates peuvent changer, à revérifier au moment de contacter. Ce que tu écris reste sur ton appareil&nbsp;; rien n'est envoyé à Romain sans que tu le décides.</p>
 
 </div>
 
